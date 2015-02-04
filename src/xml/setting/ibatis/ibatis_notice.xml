@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE sqlMap
+	PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
+	"http://ibatis.apache.org/dtd/sql-map-2.dtd">
+	
+	<sqlMap>
+	<!-- QNA관련 -->
+
+	<resultMap class="bean.bbs.QnA" id="Qna">
+		<result property="qnaNumber" column="QNA_NUMBER"/>
+		<result property="qnaTitle" column="QNA_TITLE"/>
+		<result property="qnaCategory" column="QNA_CATEGORY"/>
+		<result property="qnaContant" column="QNA_CONTANT"/>
+		<result property="qnaDate" column="QNA_DATE"/>
+		<result property="qnaAnswer" column="QNA_ANSWER"/>
+		<result property="memberNumber" column="MEMBER_NUMBER"/>
+	</resultMap>
+	
+	<update id="updateQna" parameterClass="bean.bbs.QnA">
+		update QNA 
+		<dynamic prepend="set">
+			<isNotEmpty property="qnaTitle">
+				QNA_TITLE=#qnaTitle#,
+			</isNotEmpty>
+			<isNotEmpty property="qnaCategory">
+				QNA_CATEGORY=#qnaCategory#,
+			</isNotEmpty>
+			<isNotEmpty property="qnaContant">
+				QNA_CONTANT=#qnaContant#
+			</isNotEmpty>
+			<isNotEmpty  property="qnaAnswer">
+			qna_answer=#qnaAnswer#
+			</isNotEmpty>
+		</dynamic>
+		where qna_number=#qnaNumber#
+	</update>
+	
+	<delete id="deleteQna" parameterClass="int">
+		delete from qna where qna_number=#qnaNumber#
+	</delete>
+	
+	<select id="getQnaByNumber" resultMap="Qna" parameterClass="int">
+		select * from qna where qna_number=#qnaNumber#
+	</select>
+	
+	<insert id="insertQna" parameterClass="bean.bbs.QnA">
+		insert into qna values (qna_seq.nextval, #qnaTitle#, #qnaCategory#, 
+		#qnaContant#, SYSDATE, null, #memberNumber#)
+	</insert>
+	<select id="getRowCount" resultClass="int">
+		select count(*) from qna
+	</select>
+	
+	<select id="getQnaList" resultMap="Qna" parameterClass="java.util.Map">
+	select * from  ( select rownum as rn, e.* from (select * from qna order by qna_number desc) e )
+	<dynamic prepend="where">
+		<isNotEmpty prepend="AND" property="qnaNumber">
+			qna_number=#qnaNumber#
+		</isNotEmpty>
+		<isNotEmpty prepend="AND" property="qnaTitle">
+			qna_title=#qnaTitle#
+		</isNotEmpty>
+		<isNotEmpty prepend="AND" property="qnaContant">
+			qna_contant=#qnaContant#
+		</isNotEmpty>
+		<isNotEmpty prepend="AND" property="memberNumber">
+			member_number=#memberNumber#
+		</isNotEmpty>
+		<isNotEmpty property="start">
+		<isNotEmpty property="end">
+				 rn between $start$ and $end$
+		</isNotEmpty>
+	</isNotEmpty>
+	</dynamic>
+	order by qna_number DESC
+	</select>
+	
+	<select id="getQnaListByCondition" resultMap="Qna">
+		select * from qna
+		<dynamic prepend="WHERE">
+			<isNotEmpty prepend="AND" property="qnaTitle">
+				qna_title like '%$qnaTitle$%'
+			</isNotEmpty>
+			
+			<isNotEmpty prepend="AND" property="qnaContant">
+				qna_contant like '%$qnaContant$%'
+			</isNotEmpty>
+			
+			<isNotEmpty prepend="AND" property="member_number">
+				member_number =  #member_number#
+			</isNotEmpty>
+		</dynamic>
+		order by qna_number DESC
+	</select>
+	
+	<!-- FAQ관련 -->
+	<resultMap class="bean.bbs.FAQ" id="Faq">
+		<result property="faqNumber" column="FAQ_NUMBER"/>
+		<result property="faqTitle" column="FAQ_TITLE"/>
+		<result property="faqAnswer" column="FAQ_ANSWER"/>
+	</resultMap>
+	
+	<select id="getFaq" resultMap="Faq">
+		select * from faq order by faq_number DESC
+	</select>
+
+	<update id="updateFaq" parameterClass="bean.bbs.FAQ">
+		update FAQ 
+		set faq_title=#faqTitle#,
+		faq_answer=#faqAnswer#
+		where faq_number=#faqNumber#
+	</update>
+	
+	<delete id="deleteFaq" parameterClass="int">
+		delete from faq where faq_number=#faqNumber#
+	</delete>
+	
+	<insert id="insertFaq" parameterClass="bean.bbs.FAQ">
+		insert into faq values (faq_seq.nextval, #faqTitle#, #faqAnswer#)
+	</insert>
+	
+	<select id="getFaqByNumber" parameterClass="int" resultMap="Faq">
+		select * from faq where faq_number=#faqNumber#
+	</select>
+	
+	
+	
+	
+	
+	
+	<!-- 공지사항관련 -->
+	 <resultMap class="bean.bbs.Notice" id="Notice">
+		<result property="noticeNumber" column="NOTICE_NUMBER"/>
+		<result property="noticeTitle" column="NOTICE_TITLE"/>
+		<result property="noticeContant" column="NOTICE_CONTANT"/>
+		<result property="noticeDate" column="NOTICE_DATE"/>
+		<result property="noticeFile" column="NOTICE_FILE"/>
+		<result property="noticeHits" column="NOTICE_HITS"/>
+		<result property="memberNumber" column="MEMBER_NUMBER"/>
+	</resultMap>
+	
+	
+	<select id="getNoticeList" resultMap="Notice">
+		select * from notice order by notice_number  DESC
+	</select>
+	
+	<select id="getSingleNotice" parameterClass="int" resultMap="Notice">
+		select * from notice where notice_Number=#noticeNumber#
+	</select>
+	
+	<insert id="insertNotice" parameterClass="bean.bbs.Notice">
+		insert into notice values(notice_seq.nextval, #noticeTitle#, #noticeContant#, SYSDATE, null, 0, #memberNumber#)
+	</insert>
+	
+	<delete id="deleteNotice" parameterClass="int">
+		delete from notice where notice_Number=#noticeNumber#
+	</delete>
+	
+	<update id="updateNotice" parameterClass="bean.bbs.Notice">
+		update notice
+		set notice_title=#noticeTitle#,
+		notice_contant	=	#noticeContant#
+		where notice_Number=#noticeNumber#
+	</update>
+	
+	
+	
+	</sqlMap>

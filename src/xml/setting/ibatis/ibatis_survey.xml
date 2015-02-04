@@ -1,0 +1,386 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE sqlMap      
+    PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"      
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+
+<sqlMap>
+
+<typeAlias alias="Survey" type="bean.survey.Survey"/>
+<typeAlias alias="SurveyConstraint" type="bean.survey.SurveyConstraint"/>
+<typeAlias alias="SetConstraint" type="bean.survey.SetConstraint"/>
+<typeAlias alias="Question" type="bean.survey.Question"/>
+<typeAlias alias="ResultSurvey" type="bean.survey.ResultSurvey"/>
+
+  <resultMap id="SurveyResult" class="Survey">
+    <result property="surveyNumber" column="survey_number"/>
+    <result property="surveyPoint" column="survey_point"/>
+    <result property="surveyDate" column="survey_date"/>
+    <result property="surveyTitle" column="survey_title"/>
+    <result property="surveyStartDate" column="survey_start_date"/>
+    <result property="surveyEndDate" column="survey_end_date"/>
+    <result property="surveyCondition" column="survey_condition"/>
+    <result property="memberNumber" column="member_number"/>
+    <result property="categoryNumber" column="category_number"/>
+    <!-- <result property="limitParticipateNumber" column="limit_participate_number"/> -->
+  </resultMap> 
+  
+<!-- <resultMap id="SurveyConstraintResult"  class="SurveyConstraint">
+    <result property="constraintNumber" column="constraint_Number"/>
+    <result property="constraintName" column="constraint_Name"/>
+    <result property="setConstraintList" select="getSetConstraintList" column="constraint_Number"/>
+ </resultMap>  -->
+ 
+ <resultMap id="SurveyConstraintResult"  class="SurveyConstraint">
+    <result property="constraintNumber" column="constraint_Number"/>
+    <result property="constraintName" column="constraint_Name"/>
+    <result property="setConstraintList" select="getSetConstraintList" column="constraint_Number"/>
+ </resultMap> 
+ 
+ 
+ <resultMap id="getSetConstraintListResult" class="SetConstraint">
+        <result property="setConstraintNumber" column="set_Constraint_Number" />
+        <result property="setConstraintName" column="set_Constraint_Name" />
+        <result property="constraintNumber" column="constraint_Number" />
+</resultMap>
+
+ <resultMap id="QuestionResult" class="Question">
+        <result property="questionNumber" column="QUESTION_NUMBER" />
+        <result property="questionOrder" column="QUESTION_ORDER" />
+        <result property="questionContant" column="QUESTION_CONTANT" />
+        <result property="questionImage" column="QUESTION_IMAGE" />
+        <result property="questionType" column="QUESTION_TYPE" />
+        <result property="questionViewType" column="QUESTION_VIEW_TYPE" />
+        <result property="exampleList" select="getExampleList1" column="QUESTION_NUMBER" />
+</resultMap>
+
+  <select id="selectSurveyAllById" parameterClass="String" resultClass="bean.survey.Survey">
+    select 
+        SURVEY_NUMBER as surveyNumber, 
+        SURVEY_POINT as surveyPoint, 
+        SURVEY_DATE as surveyDate, 
+        SURVEY_TITLE as surveyTitle , 
+        SURVEY_START_DATE as surveyStartDate, 
+        SURVEY_END_DATE as surveyEndDate, 
+        SURVEY_CONDITION as surveyCondition,
+        CATEGORY_name as categoryName, 
+           s.category_number as categoryNumber,
+        <!-- LIMIT_PARTICIPATE_NUMBER as limit_participate_number, --> 
+        member_id as memberId
+    from survey s, lip_member m, category c
+    where s.member_number=m.member_number 
+        and c.category_number=s.category_number 
+        and MEMBER_ID like '%$memberId$%'
+  </select>
+  
+    <select id="selectSurveyAllByCondition" parameterClass="Integer" resultClass="bean.survey.Survey">
+    select 
+        SURVEY_NUMBER as surveyNumber, 
+        SURVEY_POINT as surveyPoint, 
+        SURVEY_DATE as surveyDate, 
+        SURVEY_TITLE as surveyTitle , 
+        SURVEY_START_DATE as surveyStartDate, 
+        SURVEY_END_DATE as surveyEndDate, 
+        SURVEY_CONDITION as surveyCondition,
+        CATEGORY_name as categoryName, 
+        s.CATEGORY_NUMBER as categoryNumber,
+        member_id as memberId
+    from survey s, lip_member m, category c
+    where s.member_number=m.member_number 
+        and c.category_number=s.category_number 
+        and SURVEY_CONDITION=#value#
+  </select>
+  
+<select id="selectSurveyAllByNum" parameterClass="Integer" resultClass="bean.survey.Survey">
+    select 
+        SURVEY_NUMBER as surveyNumber, 
+        SURVEY_POINT as surveyPoint, 
+        SURVEY_DATE as surveyDate, 
+        SURVEY_TITLE as surveyTitle , 
+        SURVEY_START_DATE as surveyStartDate, 
+        SURVEY_END_DATE as surveyEndDate, 
+        SURVEY_CONDITION as surveyCondition,
+        CATEGORY_name as categoryName, 
+        s.category_number as categoryNumber,
+        member_id as memberId
+    from survey s, lip_member m, category c
+    where s.member_number=m.member_number 
+        and c.category_number=s.category_number 
+        and s.SURVEY_NUMBER = #value#
+  </select>
+  
+<!--   <select id="selectSurveyConstraintbyNum" parameterClass="integer" resultMap="SurveyConstraintResult"> -->
+<select id="selectSurveyConstraintbyNum" parameterClass="integer" resultMap="SurveyConstraintResult">
+    select distinct constraint_name, constraint_number from
+    (select set_constraint_name, c.constraint_number, constraint_name 
+    from add_constraint a, set_constraint b, survey_constraint c
+    where a.set_constraint_number=b.set_constraint_number
+    and b.constraint_number=c.constraint_number
+    and survey_number=#surveyNum#)
+  </select>
+  
+ <select id="getSetConstraintList"  parameterClass="integer" resultClass="bean.survey.SetConstraint">
+    select set_Constraint_Number as setConstraintNumber, set_Constraint_Name as setConstraintName
+    from set_constraint
+    where constraint_number=#valuer#
+  </select>
+  
+  <select id="getLimitNum"  parameterClass="java.util.Map" resultClass="Integer">
+    select  LIMIT_PARTICIPATE_NUMBER from add_constraint 
+    where set_constraint_number= #setCon#
+    and survey_Number= #survey#
+  </select>
+  
+<select id="getLimitCount"  parameterClass="Integer" resultClass="bean.survey.LimitParticipate">
+    select  
+        LIMIT_PARTICIPATE_LIMIT as limitParticipateLimit, 
+        LIMIT_PARTICIPATE_COUNT as limitParticipateCount
+    from limit_participate 
+    where LIMIT_PARTICIPATE_NUMBER=#value#
+</select>
+
+<select id="selectQuestionNum" parameterClass="integer" resultMap="QuestionResult">
+    select QUESTION_NUMBER, QUESTION_ORDER, QUESTION_CONTANT, QUESTION_IMAGE, QUESTION_TYPE ,  QUESTION_VIEW_TYPE
+    from question
+    where survey_number=#value#
+</select>
+
+<select id="getExampleList1"  parameterClass="integer" resultClass="bean.survey.Example">
+    select 
+        a.EXAMPLE_NUMBER as exampleNumber, 
+        EXAMPLE_ORDER as exampleOrder, 
+        EXAMPLE_LINK as exampleLink, 
+        EXAMPLE_CONTANT as exampleContant, 
+        EXAMPLE_TYPE as exampleType
+    from example a, question_example b
+    where a.EXAMPLE_NUMBER =b.EXAMPLE_NUMBER 
+    and b.question_number=#value#
+ </select>
+ 
+<insert id="insertSurveyParticipate" parameterClass="bean.survey.SurveyParticipate">
+        insert INTO SURVEY_PARTICIPATE (SURVEY_PARTICIPATE_NUMBER, SURVEY_PARTICIPATE_DATE,
+        SURVEY_NUMBER, MEMBER_NUMBER, QUESTION_NUMBER, EXAMPLE_NUMBER, LIMIT_PARTICIPATE_NUMBER)
+         VALUES (SURVEY_PARTICIPATE_SEQ.nextval, SYSDATE, #surveyNumber#,
+        #memberNumber#, #questionNumber#,  #exampleNumber#, #limitParticipateNumber#)
+</insert>
+
+<update id="updateLimitCount" parameterClass="Integer">
+      update limit_participate set LIMIT_PARTICIPATE_COUNT = LIMIT_PARTICIPATE_COUNT+1 where LIMIT_PARTICIPATE_NUMBER = #value#
+</update>
+
+<insert id="insertSurveyPoint" parameterClass="bean.point.SurveyPoint">
+        insert INTO SURVEY_POINT (SURVEY_POINT_NUMBER, SURVEY_POINT_DATE,
+        SURVEY_POINT_POINT, SURVEY_NUMBER, MEMBER_NUMBER)
+         VALUES (SURVEY_POINT_SEQ.nextval, SYSDATE, #surveyPointPoint#,
+        #surveyNumber#, #memberNumber#)
+</insert>
+
+<update id="updateSurveyPoint" parameterClass="java.util.HashMap">
+      update survey set survey_point= survey_point+#point# where survey_number = #surveyNumber#
+</update> 
+
+<update id="updateSurveyCondition" parameterClass="java.util.HashMap">
+      update survey set survey_condition= #condition# where survey_number = #surveyNumber#
+</update> 
+ 
+  <select id="selectOngoingSurvey" resultClass="bean.survey.Survey">
+  <!-- 진행중인 서베이 리스트를 가져온다 -->
+  select 
+        SURVEY_NUMBER as surveyNumber, 
+        SURVEY_POINT as surveyPoint, 
+        SURVEY_DATE as surveyDate, 
+        SURVEY_TITLE as surveyTitle , 
+        SURVEY_START_DATE as surveyStartDate, 
+        SURVEY_END_DATE as surveyEndDate, 
+        SURVEY_CONDITION as surveyCondition,
+        CATEGORY_name as categoryName, 
+        s.category_number as categoryNumber,
+        member_id as memberId
+    from survey s, lip_member m, category c
+    where s.member_number=m.member_number 
+        and c.category_number=s.category_number 
+        and survey_condition=2
+</select>
+
+<select id="selectSurveyByNumber" resultMap="SurveyResult" parameterClass="int">
+	select * from survey where survey_number=#surveyNumber#
+</select>
+
+<select id="getSetConstraintName"  parameterClass="Integer" resultClass="String">
+    select set_constraint_name
+    from set_constraint a, survey_constraint b
+    where a.constraint_number=b.constraint_number
+    and a.constraint_number=#value#
+    order by set_constraint_name
+</select>
+
+<select id="getResultList"  parameterClass="java.util.HashMap" resultClass="bean.survey.Example">
+    select 
+        example_number as exampleNumber,
+        set_constraint_name as conString, 
+        count(example_number) as totalValue
+	from(
+		select a.SURVEY_NUMBER, question_number, example_number, age_number, gender_name, region_number, set_constraint_name, constraint_name
+		from  survey_participate a, lip_member b, gender c, add_constraint d, set_constraint e, survey_constraint f
+		where a.survey_number=#surveyNum#
+		and a.member_number=b.member_number 
+		and a.LIMIT_PARTICIPATE_NUMBER=d.LIMIT_PARTICIPATE_NUMBER
+		and b.gender_number=c.gender_number
+		and e.set_constraint_number=d.set_constraint_number
+		and e.constraint_number=f.constraint_number
+		and e.constraint_number=#conNum#
+		order by example_number asc, question_number asc
+	)
+	group by example_number, question_number, set_constraint_name  
+	order by example_number asc, set_constraint_name
+</select>
+
+<select id="getSelectConsNum"  parameterClass="String" resultClass="Integer">
+    select constraint_number from survey_constraint
+    where constraint_name=#value#
+</select>
+  
+<select id="getBasicSetConName"  parameterClass="java.util.HashMap" resultClass="String">
+    select distinct SET_CONSTRAINT_NAME
+    from set_constraint a, add_constraint b
+    where CONSTRAINT_NUMBER=#conNum#
+    and SURVEY_NUMBER=#surveyNum#
+    and a.SET_CONSTRAINT_NUMBER=b.SET_CONSTRAINT_NUMBER
+    order by SET_CONSTRAINT_NAME
+</select>  
+
+<select id="getResultListGender"  parameterClass="Integer" resultClass="bean.survey.Example">
+	select example_number as exampleNumber,  gender_number as conString, count(example_number) as totalValue
+	from  survey_participate a, lip_member b
+	where survey_number=#value#
+	and b.member_number=a.member_number
+	group by question_number, example_number, gender_number
+	order by example_number asc, gender_number
+</select>
+
+<select id="getResultListAge"  parameterClass="Integer" resultClass="bean.survey.Example">
+    select example_number as exampleNumber,  age_name as conString, count(age_name) as totalValue
+    from  survey_participate a, lip_member b, age c
+    where survey_number=#value#
+    and b.member_number=a.member_number
+    and b.age_number=c.age_number
+    group by question_number, example_number, age_name
+    order by example_number asc, age_name
+</select>
+
+<select id="getResultListPost"  parameterClass="Integer" resultClass="bean.survey.Example">
+    select example_number as exampleNumber, post as conString, count(example_number) as totalValue
+    from(
+	select question_number, example_number,  substr(postcode_address, 1, 2) as post
+	from  survey_participate a, lip_member b, postcode c
+	where survey_number=#value#
+	and b.member_number=a.member_number
+	and b.postcode_number=c.postcode_number)
+	group by question_number, example_number, post
+	order by example_number asc, post
+</select>
+
+<select id="selectSetConbyName"  parameterClass="String" resultClass="bean.survey.SetConstraint">
+	select set_constraint_number as setConstraintNumber, set_constraint_name as setConstraintName
+	from set_constraint a, survey_constraint b
+	where a.constraint_number=b.constraint_number
+	and constraint_name=#value#
+</select>
+  
+  <select id="checkMailList" parameterClass="bean.survey.MailSendList" resultClass="int">
+	select count(*) from mail_send_list
+	where member_number=#memberNumber#
+	and survey_number=#surveyNumber#
+</select>
+
+<resultMap id="DownResultSurvey"  class="ResultSurvey">
+    <result property="questionOrder" column="question_order"/>
+    <result property="questionContant" column="question_contant"/>
+    <result property="exampleOrder" column="example_order"/>
+    <result property="exampleContant" column="example_contant"/>
+    <result property="memberEmail" column="member_email"/>
+    <result property="ageName" column="age_name"/>
+    <result property="genderName" column="gender_name"/>
+    <result property="postcodeAddress" column="postcode_address"/>
+    <result property="LimtParticipateNumber" column="LIMIT_PARTICIPATE_NUMBER"/>
+    <result property="setConstraintList" select="downConstraintList" column="LIMIT_PARTICIPATE_NUMBER"/>
+ </resultMap> 
+ 
+<select id="downSurveyResutl" parameterClass="integer" resultMap="DownResultSurvey">
+    select 
+        question_order, 
+        question_contant, 
+        example_order, 
+        example_contant,
+        member_email,
+        age_name, gender_name, 
+        postcode_address, 
+        a.LIMIT_PARTICIPATE_NUMBER as LIMIT_PARTICIPATE_NUMBER 
+	from  survey_participate a, lip_member b, gender c, add_constraint d, set_constraint e, survey_constraint f, question g, example h, age i, postcode j
+	where a.survey_number=#surveyNum#
+	and a.member_number=b.member_number 
+	and a.LIMIT_PARTICIPATE_NUMBER=d.LIMIT_PARTICIPATE_NUMBER
+	and b.gender_number=c.gender_number
+	and e.set_constraint_number=d.set_constraint_number
+	and e.constraint_number=f.constraint_number
+	and g.question_number=a.question_number
+	and h.example_number=a.example_number
+	and i.age_number=b.age_number
+	and b.postcode_number=j.postcode_number
+	order by h.example_number asc, g.question_number asc
+  </select>
+
+ <select id="downConstraintList"  parameterClass="integer" resultClass="bean.survey.SetConstraint">
+    select constraint_name as constraintName, set_constraint_name as setConstraintName
+	from set_constraint a,  add_constraint b, survey_constraint c
+	where limit_participate_number=#value#
+	and a.set_constraint_number=b.set_constraint_number
+	and a.constraint_number=c.constraint_number
+  </select>
+  
+<select id="selectMailListPre" parameterClass="int" resultClass="int">
+    select distinct set_constraint_number from add_constraint
+    where survey_number=#surveyNum#
+    and set_constraint_number between 1 and 15
+</select>
+
+<select id="selectMailGendePre" parameterClass="int" resultClass="int">
+    select member_number from lip_member
+    where gender_number=#value#
+</select>
+
+<select id="selectMailAgePre" parameterClass="int" resultClass="int">
+    select member_number from lip_member
+    where age_number=#value#
+</select>
+
+<select id="selectMailLocatePre" parameterClass="int" resultClass="int">
+    select member_number from lip_member
+    where region_number=#value#
+</select>
+
+<select id="selectMailGendeAll" parameterClass="int" resultClass="int">
+    select member_number from lip_member
+</select>
+
+<select id="getOneLimitNum" parameterClass="int" resultClass="int">
+    select limit_participate_number from add_constraint
+    where survey_number=#surveyNum#
+</select>
+
+    <delete id="deletePaticipate" parameterClass="java.util.HashMap">
+        delete from mail_send_list where member_number=#memberNum# and survey_number=#surveyNum#
+    </delete>
+    
+<select id="selectMultiPoll" parameterClass="int" resultClass="int">
+   select poll_number from multipoll
+    where survey_number=#surveyNum#
+</select>
+
+    <update id="updateMultiPollCondition"   parameterClass="int"  >
+     UPDATE poll
+        SET Poll_Condition = 6
+    WHERE Poll_number = #pollNumber#
+    </update>
+  
+</sqlMap>

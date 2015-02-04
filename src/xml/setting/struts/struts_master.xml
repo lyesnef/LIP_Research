@@ -1,0 +1,54 @@
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<constant name="struts.i18n.encoding" value="UTF-8" />
+
+	<package name="Master" namespace="/master" extends="struts-default">
+			
+		<action name="Member"   class="action.master.member.MemberAction" >
+		   <interceptor-ref name="params" /> 
+			<result>/jsp/master/member/member.jsp</result>
+		</action>
+		
+		<action name="MemberDetail"   class="action.master.member.MemberDetailAction" >
+           <interceptor-ref name="params" /> 
+            <result>/jsp/master/member/memberDetail.jsp</result>
+        </action>
+        
+        <action name="SendEmail"   class="action.master.member.SendEmailAction" >
+           <interceptor-ref name="params" /> 
+            <result>/jsp/master/member/sendMail.jsp</result>
+        </action>
+        
+        <action name="SuccessEmail"   class="action.master.member.SuccessEmailAction" >
+           <interceptor-ref name="params" /> 
+            <result>/jsp/master/member/successMail.jsp</result>
+        </action>
+        
+        <action name="MaintainPoll"   class="action.master.poll.MaintainPollAction" >
+           <interceptor-ref name="params" /> 
+            <result>/jsp/master/poll/maintainPoll.jsp</result>
+        </action>
+        
+        <action name="MaintainSurvey"   class="action.master.survey.MaintainSurveyAction" >
+           <interceptor-ref name="params" /> 
+           <result>/jsp/master/survey/maintainSurvey.jsp</result>
+        </action>
+        
+        <action name="SearchPoll"   class="action.master.poll.SearchPollAction" >
+            <result>/jsp/master/poll/searchPoll.jsp</result>
+        </action>
+        
+        <action name="ChangePollsCondition"   class="action.master.poll.MaintainPollAction" method="changePollCondition">
+           <result>/jsp/master/poll/maintainPoll.jsp</result>
+        </action>
+        
+        <action name="SearchSurvey"   class="action.master.survey.SearchSurveyAction">
+            <interceptor-ref name="params" />
+           <result>/jsp/master/survey/searchSurvey.jsp</result>
+        </action>
+
+	</package>
+</struts>

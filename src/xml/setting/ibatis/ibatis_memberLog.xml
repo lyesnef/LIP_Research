@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE sqlMap      
+    PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"      
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+
+<sqlMap>
+
+  <insert id="insertMemberLog" parameterClass="bean.etc.MemberLog">
+    insert into Member_Log (
+      member_log_number,
+      member_log_contant,
+      member_log_date,
+      member_log_ip,
+      member_log_from,
+      member_number)
+    values(member_log_seq.nextval, #memberLogContant#, SYSDATE, #memberLogIp#, #memberLogFrom#, #memberNumber#)
+  </insert>
+  
+  <select id="selectMemberLogAllByNum" parameterClass="Integer" resultClass="bean.etc.MemberLog">
+    select
+          member_log_number as memberLogNumber,
+          member_log_contant as memberLogContant,
+          member_log_date as memberLogDate,
+          member_log_ip as memberLogIp,
+          member_log_from as memberLogFrom
+     from member_log where member_Number = #memberNumber# 
+  </select>
+
+</sqlMap>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+    
+    <struts>
+    <!-- 이곳에 xml을 include 하세요 -->
+  		<!-- <include file="xml/Users.xml" />
+  		 -->
+        <include file="xml/setting/struts/struts_log.xml"></include>
+  		<include file="xml/setting/struts/struts_makePoll.xml"></include>
+  		<include file="xml/setting/struts/struts_ongoingPoll.xml"></include>
+  		<include file="xml/setting/struts/struts_user_join.xml"></include>
+  		<include file="xml/setting/struts/struts_user_info.xml"></include>  		
+  		<include file="xml/setting/struts/struts_master.xml"></include>
+  		<include file="xml/setting/struts/struts_makeSurvey.xml"></include>
+  		<include file="xml/setting/struts/struts_survey.xml"></include>
+  		<include file="xml/setting/struts/struts_notice.xml"></include>
+  		<include file="xml/setting/struts/struts_eventPoll.xml"></include>
+  		<include file="xml/setting/struts/struts_common.xml"></include>
+  		<include file="xml/setting/struts/struts_rest.xml"></include>
+  		<include file="xml/setting/struts/struts_news.xml"></include>
+  	<!--  xml include 종료 -->
+    </struts>

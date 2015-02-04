@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE sqlMap      
+    PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"      
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+
+<sqlMap>
+  
+	  <select id="selectSurveyParticipateAllByNum" parameterClass="Integer" resultClass="bean.survey.SurveyParticipate">
+        select 
+            SURVEY_PARTICIPATE_DATE as surveyParticipateDate, 
+            SURVEY_TITLE as surveyTitle, 
+            category_name as categoryName
+        from survey s, survey_participate p, category c
+        where s.SURVEY_NUMBER = p.SURVEY_NUMBER and s.category_number=c.category_number
+                    and p.MEMBER_NUMBER=#memberNumber#
+	</select>
+
+</sqlMap>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+    
+    <struts>
+  <!--   <constant name="struts.multipart.maxSize" value="104857600"></constant> -->
+    <constant name="struts.i18n.encoding" value="UTF-8" />
+    
+    <package  name="eventPoll" namespace="/" extends="struts-default">
+    	
+    	<action name="EventPoll" class="action.poll.event.EventPollAction">
+    		<result name="login">/jsp/user/access/login.jsp</result>
+    		<result name="success">/jsp/poll/eventPoll.jsp</result>
+    	</action>
+    	
+    	<action name="EventPollReg" class="action.poll.event.EventPollRegAction">
+    		<result type="redirectAction">
+    			<param name="actionName">EventPoll</param>
+    		</result>
+    	</action>
+    </package>
+    </struts>

@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE sqlMap
+	PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
+	"http://ibatis.apache.org/dtd/sql-map-2.dtd">
+
+<sqlMap>
+	<select id="selectAgeAllSurvey" resultClass="bean.member.Age">
+		select age_number as ageNumber, age_name as ageName from age 
+	</select>
+	<select id="selectRegionAllSurvey" resultClass="bean.member.Region">
+		select region_number as regionNumber, region_name as regionName from region
+	</select>
+	<insert id="insertSurveyCreateBySuvey" parameterClass="bean.survey.Survey">
+		<selectKey keyProperty="surveyNumber" resultClass="int">
+			select survey_seq.nextval from dual
+		</selectKey>
+		insert into survey(survey_number, survey_point, survey_date, survey_title, 
+		survey_start_date, survey_end_date, survey_condition, member_number,
+		category_number)
+		values
+		(#surveyNumber#, #surveyPoint#, sysdate, #surveyTitle#, #surveyStartDate#,
+		#surveyEndDate#, #surveyCondition#, #memberNumber#, #categoryNumber#)
+	</insert>
+	<insert id="insertPollViewByNumber" parameterClass="bean.survey.PollExample">
+		<selectKey keyProperty="pollExampleNumber" resultClass="int">
+			select poll_example_seq.nextval from dual
+		</selectKey>
+		insert into poll_example(poll_example_number, example_number, poll_number)
+		values
+		(#pollExampleNumber#, #exampleNumber#, #pollNumber#)
+	</insert>
+	
+	<insert id="insertMultipollByNumber" parameterClass="bean.survey.Multipoll">
+		<selectKey keyProperty="multipollNumber" resultClass="int">
+			select multipoll_seq.nextval from dual
+		</selectKey>
+		insert into multipoll(multipoll_number, survey_number, poll_number, poll_example_number)
+		values
+		(#multipollNumber#, #surveyNumber#, #pollNumber#, #pollExampleNumber#)
+	</insert>
+	
+	<insert id="insertMultipollPollExampleByNumber" parameterClass="bean.survey.MultipollPollExample">
+		
+		insert into multipoll_poll_example(multipoll_poll_example_number, poll_example_number, multipoll_number)
+		values
+		(multipoll_poll_example_seq.nextval, #pollExampleNumber#, #multipollNumber#)
+	</insert>
+	
+	<insert id="insertQuestionByNumber" parameterClass="bean.survey.Question">
+		<selectKey keyProperty="questionNumber" resultClass="int">
+			select question_seq.nextval from dual
+		</selectKey>
+		insert into question(question_number, question_order, question_contant, question_image, 
+		question_type, question_view_type, survey_number)
+		values
+		(#questionNumber#, #questionOrder#, #questionContant#, #questionImage#, #questionType#,
+		#questionViewType#, #surveyNumber#)
+	</insert>
+	
+	<insert id="insertQuestionViewByNumber" parameterClass="bean.survey.QuestionExample">
+		insert into question_example(question_example_number, question_number, example_number)
+		values
+		(question_example_seq.nextval, #questionNumber#, #exampleNumber#)
+	</insert>
+	
+	<insert id="insertLimitParticipateByNum" parameterClass="bean.survey.LimitParticipate">
+		<selectKey keyProperty="limitParticipateNumber" resultClass="int">
+			select limit_participate_seq.nextval from dual
+		</selectKey>
+		insert into limit_participate(limit_participate_number, limit_participate_limit, limit_participate_count)
+		values
+		(#limitParticipateNumber#, #limitParticipateLimit#, #limitParticipateCount#)
+	</insert>
+	
+	<insert id="insertAddConstraintByNumber" parameterClass="bean.survey.AddConstraint">
+		insert into add_constraint(add_constraint_number, set_constraint_number, survey_number, limit_participate_number)
+		values
+		(add_constraint_seq.nextval, #setConstraintNum#, #surveyNumber#, #limitParticipateNumber#)
+	</insert>
+	
+	<insert id="insertSurveyPointByNumber" parameterClass="bean.point.SurveyPoint">
+		insert into survey_point(survey_point_number, survey_point_date, survey_point_point, 
+		survey_number, member_number)
+		values
+		(survey_point_seq.nextval, sysdate, #surveyPointPoint#, #surveyNumber#, #memberNumber#)
+	</insert>
+	
+	<insert id="insertSurveyConstraintName" parameterClass="bean.survey.SurveyConstraint">
+		<selectKey keyProperty="constraintNumber" resultClass="int">
+			select survey_constraint_seq.nextval from dual
+		</selectKey>
+		insert into Survey_constraint(Constraint_number, Constraint_name)
+		values
+		(#constraintNumber#, #constraintName#)
+	</insert>
+	<insert id="insertSetConstraintName" parameterClass="bean.survey.SetConstraint">
+		<selectKey keyProperty="setConstraintNumber" resultClass="int">
+			select set_constraint_seq.nextval from dual
+		</selectKey>
+		insert into Set_constraint(Set_constraint_number, Set_constraint_name, Constraint_number)
+		values
+		(#setConstraintNumber#, #constraintName#, #constraintNumber#)
+	</insert>
+	
+	<insert id="insertLimitParticipateNumber" parameterClass="bean.survey.LimitParticipate">
+		<selectKey keyProperty="limitParticipateNumber">
+			select limit_participate_seq.nextval from dual
+		</selectKey>
+		insert into limit_participate(limit_participate_number, limit_participate_limit, limit_participate_count)
+		values
+		(#limitParticipateNumber#, #limitParticipateLimit#, #limitParticipateCount#)
+	</insert>
+	<insert id="insertAddConstraintObject" parameterClass="bean.survey.AddConstraint">
+		insert into add_constraint(add_constraint_number, set_constraint_number, survey_number, limit_participate_number)
+		values
+		(add_constraint_seq.nextval, #setConstraintNum#, #surveyNumber#, #limitParticipateNumber#)
+	</insert>
+	
+</sqlMap>

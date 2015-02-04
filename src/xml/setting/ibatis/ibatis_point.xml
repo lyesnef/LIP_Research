@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE sqlMap      
+    PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"      
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+
+<sqlMap>
+  
+	  <select id="selectPointAllByNum" parameterClass="Integer" resultClass="bean.point.PointIncome">
+	    select 
+	        point_income_date as pointIncomeDate, 
+	        point_income_point as pointIncomePoint, 
+	        point_outcome_point as pointOutcomePoint,
+	        point_income_detail as pointIncomeDetail,
+	        point_income_list as pointIncomeList
+	          from
+			    (
+			    select point_income_date, point_income_point, (select 0 from dual) as point_outcome_point , point_income_detail, point_income_list, member_number from point_income 
+			    union all
+			    select point_outcome_date, (select 0 from dual) as point_income_point, point_outcome_point, point_outcome_detail, point_outcome_list, member_number   from point_outcome 
+			    )
+	   where member_number=#memberNumber#
+	   order by point_income_date DESC
+	</select>
+
+
+
+
+<!--     select 
+        i.point_income_date as pointIncomeDate,
+        i.point_income_point as pointIncomePoint,
+        i.point_income_list as pointIncomeDetail,
+        i.point_income_detail as pointIncomeList,
+        o.point_outcome_date as pointIncomeDate,
+        o.point_outcome_point as pointOutcomePoint,
+        o.point_outcome_list as pointIncomeDetail,
+        o.point_outcome_detail as pointIncomeList
+    from point_income i, point_outcome o
+    where i.member_number= #memberNumber#
+    order by i.point_income_date -->
+
+</sqlMap>
