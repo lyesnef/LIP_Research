@@ -1,0 +1,35 @@
+@CHARSET "UTF-8";
+
+/* html, body {
+  height: 100%;
+} */
+html {
+  overflow-y: scroll;
+  background: url(../images/common/bg-pattern.png) center;
+}
+body {
+	margin: 0 auto;
+	width: 980px;
+	color: #777;
+    font-size:13px;
+   /*  background: #f2f2f2; */
+    font-family:'Nanum',nanumgothic,'돋움',Dotum,AppleGothic,Helvetica,sans-serif;
+ 	/* background: url(../images/common/bg.png) no-repeat center; */
+}
+
+#body-section {
+	width: 73%;
+float: left;
+margin: 11px;
+/* padding-right: 48px; */
+}
+#banner-section {
+	width: 18%;
+margin-bottom: 20px;
+float: left;
+}
+#master-body-section {
+    width: 1200px;
+    margin: 50px;
+}
+

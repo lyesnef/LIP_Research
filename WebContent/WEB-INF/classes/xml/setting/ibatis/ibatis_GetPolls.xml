@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE sqlMap
+	PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
+	"http://ibatis.apache.org/dtd/sql-map-2.dtd">
+
+<sqlMap>
+	<!-- Use type aliases to avoid typing the full classname every time. -->
+	<typeAlias alias="Poll" type="bean.survey.Poll" />
+	<typeAlias alias="Example" type="bean.survey.Example" />
+	<typeAlias alias="PollParticipate" type="bean.survey.PollParticipate" />
+	<typeAlias alias="ResultExcel" type="bean.member.ResultExcel" />
+
+	<resultMap id="ResultPollInfo" class="Poll">
+		<result property="pollNumber" column="POLL_NUMBER" />
+		<result property="pollQuestion" column="POLL_QUESTION" />
+		<result property="pollLink" column="POLL_LINK" />
+		<result property="pollDate" column="POLL_DATE" />
+		<result property="pollExplain" column="POLL_EXPLAIN" />
+		<result property="pollStartDate" column="POLL_START_DATE" />
+		<result property="pollEndDate" column="POLL_END_DATE" />
+		<result property="pollBalancePoint" column="POLL_BALANCE_POINT" />
+		<result property="pollQuestionType" column="POLL_QUESTION_TYPE" />
+		<result property="pollViewType" column="POLL_VIEW_TYPE" />
+		<result property="pollCondition" column="POLL_CONDITION" />
+		<result property="memberNumber" column="MEMBER_NUMBER" />
+		<result property="categoryNumber" column="CATEGORY_NUMBER" />
+		<result property="exampleType" select="getExampleType" column="POLL_NUMBER" />
+		<result property="exampleList" select="getExampleInfoList"
+			column="POLL_NUMBER" />
+	</resultMap>
+	
+		<resultMap id="masterResultPollInfo" class="Poll">
+		<result property="pollNumber" column="POLL_NUMBER" />
+		<result property="pollQuestion" column="POLL_QUESTION" />
+		<result property="pollLink" column="POLL_LINK" />
+		<result property="pollDate" column="POLL_DATE" />
+		<result property="pollExplain" column="POLL_EXPLAIN" />
+		<result property="pollStartDate" column="POLL_START_DATE" />
+		<result property="pollEndDate" column="POLL_END_DATE" />
+		<result property="pollBalancePoint" column="POLL_BALANCE_POINT" />
+		<result property="pollQuestionType" column="POLL_QUESTION_TYPE" />
+		<result property="pollViewType" column="POLL_VIEW_TYPE" />
+		<result property="pollCondition" column="POLL_CONDITION" />
+		<result property="memberNumber" column="MEMBER_NUMBER" />
+		<result property="categoryName" select="getcategoryName" column="CATEGORY_NUMBER" />
+		<result property="categoryNumber" column="CATEGORY_NUMBER" />
+		<result property="memberId"  select="getMemberId" column="MEMBER_NUMBER" />
+		<result property="exampleType" select="getExampleType" column="POLL_NUMBER" />
+		<result property="exampleList" select="getExampleInfoList"
+			column="POLL_NUMBER" />
+	</resultMap>
+
+	<!-- 폴과 폴보기와 폴보기번호를 조인해서 폴이 가지고 있는 보기들의 리스트를 뽑아 내시오 -->
+
+	<resultMap id="ResultExampleInfo" class="Example">
+		<result property="exampleNumber" column="EXAMPLE_NUMBER" />
+		<result property="exampleOrder" column="EXAMPLE_ORDER" />
+		<result property="exampleLink" column="EXAMPLE_LINK" />
+		<result property="exampleContant" column="EXAMPLE_CONTANT" />
+		<result property="exampleType" column="EXAMPLE_TYPE" />
+		<result property="pollExampleNumber" column="POLL_EXAMPLE_NUMBER" />
+	</resultMap>
+
+
+ 	<resultMap class="ResultExcel" id="re">
+ 		<result property="no" column="RNUM" />
+		<result property="genderName" column="GENDER_NAME" />
+		<result property="ageName" column="AGE_NAME" />
+		<result property="regionName" column="REGION_NAME" />
+		<result property="exampleOrder" column="EXAMPLE_ORDER" />
+		<result property="exampleContant" column="EXAMPLE_CONTANT" />
+ 	</resultMap>
+	<!-- insert 결과 private int pollParticipateNumber; private int memberNumber; 
+		private int pollNumber; private int pollExampleNumber; private Date pollParticipateDate; 
+		private List<Integer> results; POLL_PARTICIPATE_NUMBER NOT NULL NUMBER POLL_PARTICIPATE_DATE 
+		DATE MEMBER_NUMBER NOT NULL NUMBER POLL_NUMBER NOT NULL NUMBER POLL_EXAMPLE_NUMBER 
+		NOT NULL NUMBER -->
+
+
+	<!-- Select with no parameters using the result map for Account class. -->
+	<select id="selectAllPoll" resultMap="ResultPollInfo" parameterClass="java.util.Map" >
+	 <![CDATA[ 
+	 select * from 
+	 	(	
+	    select  ROW_NUMBER() OVER(ORDER BY poll_number DESC  ) as rnum, poll.* from Poll
+	    where POLL_CONDITION = 2 and poll_start_date < sysdate and poll_end_date+1 >= sysdate
+	   )
+	 where  rnum >= #start#  and rnum < #end#  
+	 ]]> 
+	</select>
+
+	<select id="getExampleInfoList" resultMap="ResultExampleInfo">
+		select
+		e.EXAMPLE_NUMBER, e.EXAMPLE_ORDER, e.EXAMPLE_LINK, e.EXAMPLE_CONTANT,
+		e.EXAMPLE_TYPE, pe.POLL_EXAMPLE_NUMBER
+		from EXAMPLE e, POLL p, POLL_EXAMPLE pe
+		where
+		p.POLL_NUMBER = pe.POLL_NUMBER and e.EXAMPLE_NUMBER =
+		pe.EXAMPLE_NUMBER and p.POLL_NUMBER = #value#
+	</select>
+
+	<select id="getMemberId" resultClass="String">
+		select MEMBER_ID from LIP_MEMBER where MEMBER_NUMBER =  #value#
+	</select>
+
+	<select id="getcategoryName" resultClass="String">
+		select CATEGORY_NAME from  CATEGORY where CATEGORY_NUMBER =  #value#
+	</select>
+
+	<select id="getExampleType" resultClass="int">
+		select e.EXAMPLE_TYPE
+		from EXAMPLE e, POLL p, POLL_EXAMPLE pe
+		where p.POLL_NUMBER =
+		pe.POLL_NUMBER and e.EXAMPLE_NUMBER =
+		pe.EXAMPLE_NUMBER and
+		p.POLL_NUMBER = #value#
+		group by e.EXAMPLE_TYPE
+	</select>
+
+
+	<insert id="insertPollParticipate" parameterClass="bean.survey.PollParticipate">
+
+		insert INTO POLL_PARTICIPATE (POLL_PARTICIPATE_NUMBER, POLL_PARTICIPATE_DATE,
+		MEMBER_NUMBER, POLL_NUMBER, POLL_EXAMPLE_NUMBER)
+		VALUES (POLL_PARTICIPATE_SEQ.nextval, SYSDATE, #memberNumber#,
+		#pollNumber#, #pollExampleNumber#)
+
+	</insert>
+
+	<select id="selectparticipatedPollList" parameterClass="Integer" resultClass="Integer" >
+		select poll_number from POLL_PARTICIPATE where  member_number = #value#
+		group by poll_number
+	</select>
+	
+	<select id="selectPollConditionOne"  parameterClass="Integer" resultMap="masterResultPollInfo" >
+	   select * from   Poll
+	   where POLL_CONDITION = #value# 
+	   ORDER BY poll_number DESC
+	</select>
+	
+	<select id="selectPoll" resultMap="masterResultPollInfo"  parameterClass="Integer" >
+	   select * from   Poll
+	   where POLL_NUMBER = #value#
+	</select>
+	
+    <select id="selectPollbyMemberNum"  parameterClass="Integer" resultMap="masterResultPollInfo" >
+       select * from   Poll
+       where MEMBER_NUMBER = #memberNum#
+    </select>
+    
+    <update id="updatePollCondition"   parameterClass="java.util.Map"  >
+     UPDATE poll
+		SET Poll_Condition = #result#
+	WHERE Poll_number = #pollNumber#
+    </update>
+	<update id="updatePonllPoint" parameterClass="Integer">
+	  update poll set POLL_BALANCE_POINT = POLL_BALANCE_POINT-1 where Poll_number = #value#
+	</update>
+
+	<update id="updateMemberPoint" parameterClass="java.util.Map">
+	   update lip_member set member_point = member_point+#point# where member_number = #memberNumber#
+	</update>
+
+	<insert id="insertPollPoint_info" parameterClass="java.util.Map">
+		insert into poll_point(POLL_POINT_NUMBER, POLL_POINT_DATE, POLL_POINT_POINT, MEMBER_NUMBER, POLL_NUMBER)
+	 	values(POLL_POINT_SEQ.NextVal, SYSDATE, #point#, #memberNumber#, #pollNumber#)
+	</insert>
+	
+	<update id="updatePollConditionEnd">
+	 <![CDATA[ 
+	 update poll set poll_condition = 3
+     where poll_end_date < SYSDATE-1 and poll_condition = 2
+     ]]>
+	</update>
+
+	<select id="selectFinishedPoll" resultMap="ResultPollInfo">
+		select POLL_NUMBER, POLL_QUESTION, POLL_LINK, POLL_DATE, POLL_EXPLAIN,
+			   POLL_START_DATE, POLL_END_DATE, POLL_BALANCE_POINT, POLL_QUESTION_TYPE,
+			   POLL_VIEW_TYPE, POLL_CONDITION, MEMBER_NUMBER, CATEGORY_NUMBER
+	    from poll where poll_condition = 3
+	</select>
+	
+	<select id="selectIndexPolls" resultMap="masterResultPollInfo">
+		<![CDATA[ 
+		select * from poll where POLL_CONDITION = 2 and poll_start_date < SYSDATE and poll_end_date+1 >= SYSDATE
+		order by poll_number DESC
+		   ]]>
+		
+	</select>
+
+	<select id="selectResultExcel" parameterClass="int" resultMap="re">
+		select ROW_NUMBER() OVER(ORDER BY POLL_PARTICIPATE_NUMBER ) as RNUM,
+		g.GENDER_NAME, a.AGE_NAME, r.REGION_NAME, e.EXAMPLE_ORDER,
+		e.EXAMPLE_CONTANT
+		
+		from POLL_PARTICIPATE pp, POLL_EXAMPLE pe, EXAMPLE e , LIP_MEMBER lm,
+		REGION r, GENDER g, AGE a
+		
+		where pp.POLL_EXAMPLE_NUMBER = pe.POLL_EXAMPLE_NUMBER
+			and pe.EXAMPLE_NUMBER = e.EXAMPLE_NUMBER
+			and pp.member_number = lm.member_number
+			and lm.GENDER_NUMBER = g.GENDER_NUMBER
+			and lm.AGE_NUMBER = a.AGE_NUMBER
+			and lm.REGION_NUMBER = r.REGION_NUMBER
+			and pp.POLL_NUMBER = #value#
+	</select>
+	
+	
+	<select id="selectPollQuestion" parameterClass="int" resultClass="String">
+	 select POLL_QUESTION from poll where poll_number = #value# 
+	</select>		
+	
+	<select id="selectMemberPoint" parameterClass="int" resultClass="int">
+		select member_point from lip_member where member_number = #value#
+	</select>
+</sqlMap>
