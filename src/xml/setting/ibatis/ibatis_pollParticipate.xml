@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE sqlMap      
+    PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"      
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+
+<sqlMap>
+  
+	  <select id="selectPollParticipateAllByNum" parameterClass="Integer" resultClass="bean.survey.PollParticipate">
+        select 
+            i.POLL_PARTICIPATE_DATE as pollParticipateDate, 
+            i.POLL_NUMBER as pollNumber, 
+            c.category_name as categoryName, 
+            p.POLL_QUESTION as pollQuestion
+        from poll_participate i, poll p, category c
+        where i.POLL_NUMBER = p.POLL_NUMBER and c.category_number=p.category_number
+        and  i.MEMBER_NUMBER=#memberNumber#
+	</select>
+
+</sqlMap>

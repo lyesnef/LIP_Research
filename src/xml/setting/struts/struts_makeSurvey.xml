@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+    
+<struts>
+
+	<constant name="struts.i18n.encoding" value="UTF-8" />
+	
+	<package name="makeSurvey" extends="struts-default">
+		<action name="MakeSurvey">
+			<result>/jsp/survey/create/makeSurvey.jsp</result>
+		</action>
+		<action name="SetBasicInfoTarget" class="action.survey.MakeSurvey">
+			<result>/jsp/survey/create/makeSurveyAll.jsp</result>
+		</action>
+		<action name="SetConstraint" class="action.survey.SetBasicInfoTargetAction">
+			<result>/jsp/survey/create/setConstraint.jsp</result>
+		</action>
+		<action name="MakeMultiPoll" class="action.survey.SetConstraintAction">
+			<result>/jsp/survey/create/makeMultiPoll.jsp</result>
+		</action>
+		<action name="MakeQuestion" class="action.survey.MakeMultiPollAction">
+			<result>/jsp/survey/create/makeQuestion.jsp</result>
+		</action>
+		<action name="CompleteQuestion" class="action.survey.CompleteQuestionAction">
+			<result>/jsp/survey/create/completeQuestion.jsp</result>
+		</action>
+		<action name="PaySurvey" class="action.survey.PaySurveyAction">
+			<interceptor-ref name="fileUpload">
+      			<param name="maximumSize">52428800</param>
+			</interceptor-ref>
+			<interceptor-ref name="params"/>
+			<result>/jsp/survey/create/paySurvey.jsp</result>
+		</action>
+	</package>
+
+</struts>

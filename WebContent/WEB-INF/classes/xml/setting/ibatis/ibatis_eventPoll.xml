@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE sqlMap
+	PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
+	"http://ibatis.apache.org/dtd/sql-map-2.dtd">
+	
+	<sqlMap>
+
+		<select id="getMultipollBySurveyNumber" resultClass="int" parameterClass="int">
+		<!-- 복합폴 진행중인 폴들의 리스트를 서베이 번호로 가져온다 -->
+		select p.poll_number from MULTIPOLL m, poll p 
+		where m.poll_number=p.poll_number
+		and poll_condition=6
+		and survey_number=#surveyNumber#
+		</select>
+		
+		<select id="getMultipollPollExampleNumberByPollNumber" resultClass="int" parameterClass="int">
+		<!-- 멀티폴의 원하는 폴보기 번호를 가져온다 -->
+			select mpe.poll_example_number from MULTIPOLL mp, multipoll_poll_example mpe 
+			 where mp.multipoll_number=mpe.multipoll_number 
+			 and mp.poll_number	=	#pollNumber#
+		</select>
+		
+		<insert id="insertMailSendList" parameterClass="bean.survey.MailSendList">
+		<!-- 회원을 이메일 리스트에 입력한다 -->
+			insert into mail_send_list values (mail_send_list_seq.nextval, #memberNumber#, #surveyNumber#)
+		</insert>
+		
+		<select id="getConditionNumber" parameterClass="java.util.HashMap" resultClass="int">
+		<!-- 해당 권역이 해당 서베이에 묶여있는지를 판단한다 -->
+		select count(*) from survey_constraint sc, set_constraint st, add_constraint ac
+where ac.set_constraint_number=st.set_constraint_number
+and sc.constraint_number=st.constraint_number
+and st.constraint_number=(select constraint_number from survey_constraint where constraint_name=#constraintName#)
+and survey_number=#surveyNumber#
+		</select>
+		
+		<select id="findMailList" parameterClass="java.util.HashMap" resultClass="int">
+		<!-- 메일리스트에 있는지 없는지를 확인한다 -->
+			select count(*) from MAIL_SEND_LIST where member_number=#memberNumber#
+			and survey_number=#surveyNumber#
+		</select>
+		
+		<select id="getSetConstraint" parameterClass="java.util.HashMap" resultClass="String">
+			select  distinct st.set_constraint_name from survey_constraint sc, set_constraint st, add_constraint ac
+where ac.set_constraint_number=st.set_constraint_number
+and sc.constraint_number=st.constraint_number
+and ac.survey_number=#surveyNumber#
+and sc.constraint_name=#constraintName#
+		</select>
+	
+	<select id="getMemberAgeValue" parameterClass="java.util.HashMap" resultClass="java.lang.String">
+		select age_name from lip_member lm, age a where a.age_number=lm.age_number
+		and member_number=#memberNumber#
+		<!-- <dynamic>
+		<isEqual property="str" compareValue="나이">
+		age_name
+		</isEqual>
+		<isEqual property="str" compareValue="지역">
+		region_name
+		</isEqual>
+		</dynamic>
+		from lip_member lm
+		<dynamic>
+			<isEqual  property="str" compareValue="나이">
+			,age a where a.age_number=lm.age_number
+		</isEqual>
+		<isEqual property="str" compareValue="지역">
+		,region r where r.region_number=lm.region_number
+		</isEqual>
+		</dynamic>
+		and member_number=#memberNumber# -->
+	</select>
+	
+	<select id="getMemberRegionValue" parameterClass="HashMap" resultClass="String">
+	select region_name from lip_member lm, region a where a.region_number=lm.region_number
+		and member_number=#memberNumber#
+	</select>
+	<select id="getMemberGender" parameterClass="int" resultClass="int">
+		select gender_number from lip_member where member_number=#memberNumber#
+	</select>
+	
+	<select id="cehckBySurveyNumber" resultClass="int" parameterClass="int">
+        <!-- 복합폴 진행중인 폴들의 리스트를 서베이 번호로 가져온다 -->
+        select distinct multipoll_number from MULTIPOLL 
+        where survey_number=#surveyNumber#
+    </select>
+	
+	</sqlMap>

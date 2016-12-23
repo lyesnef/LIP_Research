@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+    
+<struts>
+
+<constant name="struts.i18n.encoding" value="UTF-8" />
+
+<package  name="user_join" extends="struts-default">
+	<action name="CheckId" class="action.user.join.CheckIdAction">
+		<result>/jsp/user/join/checkId.jsp</result>
+	</action>
+	<action name="PostSearch" class="action.user.join.PostSearchAction">
+		<result>/jsp/user/join/postResult.jsp</result>
+	</action>
+	
+	<action name="CheckMail" class="action.user.join.CheckMailAction">
+		<result>/jsp/user/join/checkMail.jsp</result>
+	</action>
+	
+	<action name="SuccessJoin" class="action.user.join.SuccessJoinAction">
+		<interceptor-ref name="params" />
+		<interceptor-ref name="workflow" />
+		<result name="input">/jsp/user/join/regForm.jsp</result>
+		<result name="success">/jsp/user/join/successJoin.jsp</result>
+	</action>
+	
+	<action name="JoinAction">
+		<result>/jsp/user/join/regForm.jsp</result>
+	</action>
+	
+	<action name="MyParticipatePoll" class="action.user.info.MyParticipatePollAction">
+		<result>/jsp/user/info/myParticipatePoll.jsp</result>
+	</action>
+	
+	   <action name="MyParticipateSurvey" class="action.user.info.MyParticipateSurveyAction">
+        <result>/jsp/user/info/myParticipateSurvey.jsp</result>
+    </action>
+    
+    <action name="MySurvey" class="action.user.info.MySurveyAction">
+        <result>/jsp/user/info/mySurvey.jsp</result>
+    </action>
+    
+    <action name="MyPollInfo" class="action.user.info.MyPollInfoAction">
+        <result>/jsp/user/info/myPollInfo.jsp</result>
+    </action>
+</package>
+
+</struts>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+    
+    <struts>
+  <!--   <constant name="struts.multipart.maxSize" value="104857600"></constant> -->
+    <constant name="struts.i18n.encoding" value="UTF-8" />
+    
+    <package  name="makePoll" namespace="/poll" extends="struts-default">
+    	
+    	<action name="MakePoll" class="action.poll.create.MakePollAction">
+    		<interceptor-ref name="chain" />
+    		<interceptor-ref name="params" />
+    		<result>/jsp/poll/makePoll.jsp</result>
+    		<result name="login">/LIP_Research/jsp/user/access/login.jsp</result>
+    	</action>
+    	
+    	<action name="RegPoll" class="action.poll.create.RegPollAction">
+    		<interceptor-ref name="fileUpload">
+      <param name="maximumSize">52428800</param>
+			</interceptor-ref>
+    		<interceptor-ref name="params" />
+    		<result name="login">/LIP_Research/jsp/user/access/login.jsp</result>
+    		<result name="success" type="redirectAction">	
+    			<param name="actionName">OngoingPoll</param>
+    		</result>
+    		<result name="input" type="chain">
+    			<param name="actionName">MakePoll</param>
+    		</result>
+    	</action>
+    	
+    	<action name="ResultPoll" class="action.poll.ongoing.ResultPollAction">
+    	<interceptor-ref name="chain" />
+    	<interceptor-ref name="params" />
+    		<result name="success">/jsp/poll/resultPoll.jsp</result>
+    	</action>
+    	
+    	<action name="RegMessage" class="action.poll.ongoing.RegMessageAction">
+    		<interceptor-ref name="params" />
+    		<result type="chain">
+    			<param name="actionName">ResultPoll</param>
+    		</result>
+    	</action>
+    
+    </package>
+    </struts>

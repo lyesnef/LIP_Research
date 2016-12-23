@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+    
+<struts>
+
+	<constant name="struts.i18n.encoding" value="UTF-8" />
+	
+	<package name="user_info" extends="struts-default">
+		<action name="MyInfo">
+			<result>/jsp/user/info/checkPW.jsp</result>
+		</action>
+		<action name="CheckPW" class="action.user.info.CheckPWAction">
+			<interceptor-ref name="params" />
+			<interceptor-ref name="workflow" />
+			<result name="input">/jsp/user/info/checkPW.jsp</result>
+			<result name="success">/jsp/user/info/myInfo.jsp</result>
+		</action>
+		
+		<action name="MyInfoModify" class="action.user.info.MyInfoModifyAction">
+			<interceptor-ref name="params" />
+			<interceptor-ref name="workflow" />
+			<result>/jsp/user/info/myInfo.jsp</result>
+		</action>
+		
+		
+		<action name="ChangeImage" class="action.user.info.ChangeImageAction">
+		<interceptor-ref name="fileUpload">
+      <param name="maximumSize">52428800</param>
+      </interceptor-ref>
+      <interceptor-ref name="params" />
+			<result name="success">/jsp/user/info/changeImageResult.jsp</result>
+		</action>
+	</package>
+
+</struts>

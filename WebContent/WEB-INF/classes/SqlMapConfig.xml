@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMapConfig      
+    PUBLIC "-//ibatis.apache.org//DTD SQL Map Config 2.0//EN"      
+    "http://ibatis.apache.org/dtd/sql-map-config-2.dtd">
+<sqlMapConfig>
+  <properties resource="db.properties" />
+  <settings enhancementEnabled="true" useStatementNamespaces="true" />
+  <transactionManager type="JDBC" commitRequired="false">
+    <dataSource type="SIMPLE">
+      <property name="JDBC.Driver" value="${driver}"/>
+      <property name="JDBC.ConnectionURL" value="${url}"/>
+      <property name="JDBC.Username" value="${id}"/>
+      <property name="JDBC.Password" value="${password}"/>
+    </dataSource>
+  </transactionManager>
+ <!--  <sqlMap resource="xml/ibatis/User.xml"/>
+  <sqlMap resource="xml/ibatis/ibatis_user.xml"/>
+ -->
+ <sqlMap resource="xml/setting/ibatis/ibatis_log.xml"/> 
+ <sqlMap resource="xml/setting/ibatis/ibatis_makePoll.xml"/>
+ <sqlMap resource="xml/setting/ibatis/ibatis_user_join.xml"/>
+ <sqlMap resource="xml/setting/ibatis/ibatis_memberLog.xml"/>
+ <sqlMap resource="xml/setting/ibatis/ibatis_GetPolls.xml"/>
+ <sqlMap resource="xml/setting/ibatis/ibatis_user_info.xml"/>
+ <!--mailSend 테이블관련 -->
+ <sqlMap resource="xml/setting/ibatis/ibatis_mailSendList.xml"/>
+ 
+ <!-- 포인트 관련 sql -->
+ <sqlMap resource="xml/setting/ibatis/ibatis_point.xml"/>
+ 
+ <!-- 폴 참여 관련 -->
+ <sqlMap resource="xml/setting/ibatis/ibatis_pollParticipate.xml"/>
+  <sqlMap resource="xml/setting/ibatis/ibatis_eventPoll.xml"/>
+ 
+ <!-- 서베이참여관련 -->
+ <sqlMap resource="xml/setting/ibatis/ibatis_surveyParticipate.xml"/>
+ <sqlMap resource="xml/setting/ibatis/ibatis_survey.xml"/>
+ <!-- 서베이 생성 -->
+ <sqlMap resource="xml/setting/ibatis/ibatis_makeSurvey.xml"/>
+ 
+ <!-- 게시판관련 -->
+ <sqlMap resource="xml/setting/ibatis/ibatis_notice.xml"/>
+ 
+ </sqlMapConfig>

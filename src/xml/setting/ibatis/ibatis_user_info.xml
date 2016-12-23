@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE sqlMap
+	PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
+	"http://ibatis.apache.org/dtd/sql-map-2.dtd">
+
+<sqlMap>
+	<select id="selectPostcodeByNum" parameterClass="Integer" resultClass="bean.member.Postcode">
+		select postcode_number as postcodeNumber, postcode_1st as postcode1st,
+		postcode_2nd as postcode2nd, postcode_address as postcodeAddress from postcode where postcode_number = #value#
+	</select>
+	<update id="updateInfoMemberById" parameterClass="bean.member.LipMember" >
+		update Lip_Member set member_detail_address = #memberDetailAddress#, 
+		member_cellphone_co = #memberCellphoneCo#, member_cellphone_number = #memberCellphoneNumber#, 
+		member_email_recieve = #memberEmailRecieve#, member_pw = #memberPw#, 
+		postcode_number = #postcodeNumber#, region_number = #regionNumber# where member_id = #memberId#
+	</update>
+	
+	<update id="updateMemberImg" parameterClass="bean.member.LipMember">
+		update lip_member
+		set member_image=#memberImage#
+		where member_number=#memberNumber#
+	</update>
+	
+</sqlMap>

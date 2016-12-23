@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+    
+    <struts>
+    <constant name="struts.i18n.encoding" value="UTF-8" />
+    
+    <package  name="survey" namespace="/survey"  extends="struts-default">
+    	
+    	<action name="OnGoingSurvey" class="action.survey.OnGoingSurveyAction">
+    		<result name="success">/jsp/survey/onGoingSurvey.jsp</result>
+    		<result name="login">/jsp/user/access/login.jsp</result>
+    	</action>
+    	
+    	<action name="PreviewSurvey" class="action.survey.PreviewSurveyAction">
+    	   <interceptor-ref name="params" />
+            <result name="success">/jsp/survey/previewSurvey.jsp</result>
+            <!-- <result type="redirectAction" name="input">ParticipateSurvey</result> -->
+        </action>
+        
+        <action name="ParticipateSurvey" class="action.survey.ParticipateSurveyAction">
+           <interceptor-ref name="params" />
+            <result name="success">/jsp/survey/participateSurvey.jsp</result>
+            <result name="input">/jsp/survey/failSurvey.jsp</result>
+        </action>
+        
+         <action name="RegSurvey" class="action.survey.RegSurveyAction">
+           <interceptor-ref name="params" />
+            <result name="success">/jsp/survey/regSurvey.jsp</result>
+            <result name="input">/jsp/survey/failSurvey.jsp</result>
+        </action>
+        
+        <action name="ResultSurveyList" class="action.survey.ResultSurveyListAction">
+            <result name="success">/jsp/survey/resultSurveyList.jsp</result>
+            <result name="login">/jsp/user/access/login.jsp</result>
+        </action>
+        
+        <action name="SeeSurveyResult" class="action.survey.SeeSurveyResultAction">
+            <interceptor-ref name="params" />
+            <result>/jsp/survey/seeSurveyResult.jsp</result>
+        </action>
+        
+        <action name="ResultSurveyData" class="action.survey.ResultSurveyDataAction">
+            <interceptor-ref name="params" />
+            <result>/jsp/survey/resultSurveyData.jsp</result>
+        </action>
+        
+        <action name="DownSurveyResult" class="action.survey.DownSurveyResultAction">
+          <result type="stream">
+                <param name="contentType">binary/octet-stream</param>
+                <param name="contentLength">${contentLength}</param>
+                <param name="contentDisposition">${contentDisposition}</param>
+                <param name="inputName">inputStream</param>
+                <param name="bufferSize">4096</param>
+            </result>
+        </action>
+    
+    </package>
+    </struts>

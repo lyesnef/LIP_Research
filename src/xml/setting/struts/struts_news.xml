@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+    
+    <struts>
+  <!--   <constant name="struts.multipart.maxSize" value="104857600"></constant> -->
+    <constant name="struts.i18n.encoding" value="UTF-8" />
+    
+    <package  name="news"  extends="struts-default">
+  
+    	<action name="News" class="action.news.NewsAction">
+    		<result>/jsp/news/news.jsp</result>
+    	</action>
+    	
+    	<action name="ReadNews1" class="action.news.ReadNewsAction" method="news1">
+    	  <result name="success1">/jsp/news/contents/new1.jsp</result>
+    	 </action>
+    	 <action name="ReadNews2" class="action.news.ReadNewsAction" method="news2">
+    	  <result name="success2">/jsp/news/contents/new2.jsp</result>
+    	 </action>
+    	 <action name="ReadNews3" class="action.news.ReadNewsAction" method="news3">
+    	  <result name="success3">/jsp/news/contents/new3.jsp</result>
+    	 </action>
+    	 <action name="ReadNews4" class="action.news.ReadNewsAction" method="news4">
+    	  <result name="success4">/jsp/news/contents/new4.jsp</result>
+    	 </action>
+    	 <action name="ReadNews5" class="action.news.ReadNewsAction" method="news5">
+    	  <result name="success5">/jsp/news/contents/new5.jsp</result>
+    	 </action>
+    	 <action name="ReadNews6" class="action.news.ReadNewsAction" method="news6">
+    	  <result name="success6">/jsp/news/contents/new6.jsp</result>
+    	 </action> 
+ 
+    	
+    </package>
+    </struts>

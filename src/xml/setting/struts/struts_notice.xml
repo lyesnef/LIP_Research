@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+    
+    <struts>
+  <!--   <constant name="struts.multipart.maxSize" value="104857600"></constant> -->
+    <constant name="struts.i18n.encoding" value="UTF-8" />
+    
+    <package  name="notice" namespace="/" extends="struts-default">
+    	<!-- QNA -->
+    	<action name="AnswerQna" class="action.contact.qna.AnswerQnaAction">
+    		<result type="chain">
+    			<param name="actionName">DetailQna</param>
+    		</result>
+    	</action>
+    	
+    	<action name="ModifyQnaForm" class="action.contact.qna.ModifyQnaFormAction">
+    		<result>
+    			/jsp/contact/qna/ModifyQnaForm.jsp
+    		</result>
+    	</action>
+    	
+    	<action name="ModifyQna" class="action.contact.qna.ModifyQnaAction">
+    		<result type="chain">
+    			<param name="actionName">DetailQna</param>
+    		</result>
+    	</action>
+    	
+    	<action name="DeleteQna" class="action.contact.qna.DeleteQnaAction">
+    		<result type="redirectAction">
+    			<param name="actionName">Qna</param>
+    		</result>
+    	</action>
+    	
+    	<action name="DetailQna" class="action.contact.qna.DetailQnaAction">
+    	<interceptor-ref name="chain" />
+    	<interceptor-ref name="params" />
+    		<result>/jsp/contact/qna/answerQna.jsp</result>	
+    	</action>
+    	
+    	<action name="Qna" class="action.contact.qna.QnaAction">
+    		<result>/jsp/contact/qna/qna.jsp</result>
+    	</action>
+    	
+    	<action name="SearchQna" class="action.contact.qna.SearchQnaAction">
+    		<result>/jsp/contact/qna/qna.jsp</result>
+    	</action>
+    	
+    	<action name="WriteQnaForm">
+    		<result>/jsp/contact/qna/writeQnaForm.jsp</result>
+    	</action>
+    	
+    	<action name="WriteQna" class="action.contact.qna.WriteQnaAction">
+    		<result type="redirectAction">
+    			<param name="actionName">Qna</param>
+    		</result>
+    	</action>
+    	<!-- 공지사항 -->
+    	<action name="Notice" class="action.contact.notice.NoticeAction">
+    		<result>/jsp/contact/notice/notice.jsp</result>
+    	</action>
+    
+    	<action name="WriteNotice" class="action.contact.notice.WriteNoticeAction">
+    		<result name="success" type="redirectAction">
+    			<param name="actionName">Notice</param>
+    		</result>
+    	</action>
+    	
+    	<action name="GetSingleNotice" class="action.contact.notice.GetSingleNotice">
+    		<result>/jsp/contact/notice/ajax/ajaxNoticeResult.jsp</result>
+    	</action>
+    	
+    	<action name="DeleteNotice" class="action.contact.notice.DeleteNoticeAction">
+    		<result name="success" type="redirectAction">
+    			<param name="actionName">Notice</param>
+    		</result>
+    	</action>
+    	
+    	<action name="ModifyNotice" class="action.contact.notice.ModifyNoticeAction">
+    		<result name="success" type="redirectAction">
+    			<param name="actionName">Notice</param>
+    		</result>
+    	</action>
+    	
+    	<!-- FAQ -->
+    	<action name="Faq" class="action.contact.faq.FaqAction">
+    		<result>/jsp/contact/faq/faq.jsp</result>
+    	</action>
+    	
+    	<action name="SingleFaq" class="action.contact.faq.SingleFaqAction">
+    		<result>/jsp/contact/notice/ajax/ajaxNoticeResult.jsp</result>
+    	</action>
+    	
+    	<action name="ModifyFaq" class="action.contact.faq.ModifyFaqAction">
+    		<result name="success" type="redirectAction">
+    			<param name="actionName">Faq</param>
+    		</result>
+    	</action>
+    	
+    	<action name="DeleteFaq" class="action.contact.faq.DeleteFaqAction">
+    		<result name="success" type="redirectAction">
+    			<param name="actionName">Faq</param>
+    		</result>
+    	</action>
+    	
+    	<action name="WriteFaq" class="action.contact.faq.WriteFaqAction">
+    		<result name="success" type="redirectAction">
+    			<param name="actionName">Faq</param>
+    		</result>
+    	</action>
+    	
+    </package>
+    </struts>

@@ -1,0 +1,28 @@
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<constant name="struts.i18n.encoding" value="UTF-8" />
+
+	<package name="point" namespace="/point" extends="struts-default">
+
+		<action name="MyPointInfo" class="action.user.info.MyPointInfoAction">
+				<result>/jsp/user/info/myPointInfo.jsp</result>
+		</action>
+		
+	
+		<action name="ExchangePoint" class="action.point.ExchangePointAction">
+				<result>/jsp/point/ajax/exchangeResult.jsp</result>
+		</action>
+
+		<action name="ResponseExchangecheckMemberAction" class="action.point.ResponseExchangeAction" method="checkMember">
+				<result>/jsp/point/ajax/exchangeResult.jsp</result>
+		</action>
+		<action name="ResponseExchangePointAction" class="action.point.ResponseExchangeAction" method="changePoint">
+				<result>/jsp/point/ajax/exchangeResult.jsp</result>
+		</action>
+		
+	</package>
+	
+</struts>

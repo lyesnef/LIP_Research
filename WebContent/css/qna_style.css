@@ -1,0 +1,2364 @@
+@charset "utf-8";
+/* CSS Document */
+
+html {
+  overflow-y: scroll;
+  background: url(../images/common/bg-pattern.png) center;
+}
+body {
+margin: 0 auto;
+width: 980px;
+color: #777;
+font-size: 13px;
+font-family: 'Nanum',nanumgothic,'돋움',Dotum,AppleGothic,Helvetica,sans-serif;
+}
+
+#body-section {
+	
+width: 73%;
+float: left;
+margin: 11px;
+padding-right: 48px;
+
+}
+
+#banner-section {
+	width: 260px;
+	margin:20px;
+	float: left;
+}
+#master-body-section {
+    width: 1200px;
+    margin: 50px;
+}
+
+
+table, .btn_m10, .btn_area_r01 {
+  border:0;
+  color:#333333;
+  font-family:NanumGothic, NanumGothicWeb, Verdana, 굴림, Gulim, Dotum, 돋움, sans-serif;
+  font-size:12px;
+  margin:0;
+  padding:0;
+  vertical-align:baseline;
+}
+
+input, select, textarea {
+  color:#666666;
+  font-size:12px;
+}
+ol, ul {
+  list-style:none;
+}
+
+table {
+  border-spacing:0;
+}
+img {
+  vertical-align:middle;
+}
+input, option {
+  font-size:12px;
+}
+p {
+  padding:0.4em 0;
+}
+a {
+  color:#2C2B2B;
+  cursor:pointer;
+  text-decoration:none;
+}
+a:link {
+}
+a:active {
+}
+a:visited {
+}
+a:hover {
+  color:#FF6600;
+}
+#container {
+  margin:0 auto;
+  position:relative;
+  width:975px;
+}
+
+#search_bar_wrap {
+  background-image:url(http://www.yonginlib.go.kr/bora/z00_images/bg_main_search.png);
+  background-position:initial initial;
+  background-repeat:no-repeat no-repeat;
+  display:block;
+  height:38px;
+  padding:13px 25px 25px;
+}
+#search_bar_wrap select {
+  vertical-align:middle;
+}
+#search {
+  background-image:url(http://www.yonginlib.go.kr/bora/z00_images/bg_search_01.png);
+  background-position:initial initial;
+  background-repeat:no-repeat no-repeat;
+  float:left;
+  padding:0 0 5px 20px;
+  width:625px;
+}
+#search a {
+  color:#FFFFFF;
+  font-weight:bold;
+  padding:0 17px 2px 24px;
+}
+#library_link {
+  float:right;
+  width:270px;
+}
+#library_link select {
+  width:120px;
+}
+#library_link a {
+  background-image:url(http://www.yonginlib.go.kr/bora/z00_images/btn_main_go.png);
+  background-position:initial initial;
+  background-repeat:no-repeat no-repeat;
+  color:#FFFFFF;
+  font-weight:bold;
+  padding:2px 20px 15px 15px;
+}
+.search_bar_title {
+  font-weight:bold;
+  padding:0 6px 0 0;
+}
+#choise2 {
+  background-image:none;
+  background-position:initial initial;
+  background-repeat:initial initial;
+  border:none;
+  padding:0 15px;
+  width:337px;
+}
+#board_wrap {
+  float:left;
+  margin:0 0 0 4px;
+  position:relative;
+  width:360px;
+}
+#board_wrap h2 {
+  float:left;
+  width:116px;
+}
+#board_wrap h2 a {
+  border:1px solid #EEEDEC;
+  color:#544F44;
+  display:block;
+  font-size:12px;
+  padding:7px 0 5px;
+  text-align:center;
+  top:0;
+  width:114px;
+}
+#board_wrap h2 a:hover, #board_wrap h2 a.on {
+  background-color:#625D52;
+  background-image:url(http://www.yonginlib.go.kr/bora/z00_images/btn_bg_main_tab.gif);
+  background-position:initial initial;
+  background-repeat:initial initial;
+  border:1px solid #625D52;
+  color:#FFFFFF;
+}
+#board_notice h2 a {
+  left:0;
+}
+#board_event h2 a {
+  left:116px;
+}
+#board_qna h2 a {
+  left:232px;
+}
+#board_faq h2 a {
+  left:348px;
+}
+#board_wrap ul {
+  border-top-color:#544F44;
+  border-top-style:solid;
+  border-top-width:1px;
+  left:0;
+  position:absolute;
+  top:32px;
+  width:348px;
+}
+#board_wrap li {
+  background-image:url(http://www.yonginlib.go.kr/bora/z00_images/deco_dot_01.gif);
+  background-position:3px 9px;
+  background-repeat:no-repeat no-repeat;
+  line-height:1.9em;
+  padding:0 0 0 14px;
+}
+#board_wrap li.btn_more {
+  background-image:none;
+  background-position:initial initial;
+  background-repeat:initial initial;
+}
+#board_wrap li.btn_more a {
+  background-image:url(http://www.yonginlib.go.kr/bora/z00_images/btn_bg_more.png);
+  background-position:initial initial;
+  background-repeat:no-repeat no-repeat;
+  color:#FFFFFF;
+  font-family:NanumGothic, NanumGothicWeb, Verdana, 굴림, Gulim, Dotum, 돋움, sans-serif;
+  font-size:11px;
+  letter-spacing:-1px;
+  padding:3px 15px 3px 22px;
+}
+#board_wrap a {
+  color:#393939;
+}
+#board_wrap a:hover {
+  color:#E96005;
+}
+#board_wrap a span {
+  color:#9C9B9B;
+  font-family:NanumGothic, NanumGothicWeb, Verdana, 굴림, Gulim, Dotum, 돋움, sans-serif;
+  letter-spacing:-1px;
+  padding:0 10px 0 0;
+}
+#board_wrap a span:hover {
+  color:#D7A477;
+}
+#slides {
+  float:left;
+  margin:-29px 0 0 385px;
+  position:relative;
+  width:302px;
+  z-index:100;
+}
+#slides img {
+  border-bottom-left-radius:8px;
+  border-bottom-right-radius:8px;
+  border-top-left-radius:8px;
+  border-top-right-radius:8px;
+  height:210px;
+  width:300px;
+}
+.slides_container {
+  overflow:hidden;
+  width:100%;
+}
+#slides .next img, #slides .prev img {
+  display:block;
+  height:40px;
+  left:-12px;
+  position:absolute;
+  top:87px;
+  width:18px;
+  z-index:101;
+}
+#slides .next img {
+  left:293px;
+}
+.pagination {
+  margin:7px 0 0;
+  width:100%;
+}
+.pagination li {
+  float:left;
+  margin:0 1px;
+}
+.pagination li a {
+  background-image:url(http://www.yonginlib.go.kr/bora/img/pagination.png);
+  background-position:0 0;
+  display:block;
+  float:left;
+  height:0;
+  overflow:hidden;
+  padding-top:12px;
+  width:12px;
+}
+.pagination li.current a {
+  background-position:0 -12px;
+}
+.caltbe {
+  border:1px solid #DDDDDD;
+  border-bottom-left-radius:8px;
+  border-bottom-right-radius:8px;
+  border-top-left-radius:8px;
+  border-top-right-radius:8px;
+  display:inline;
+  float:right;
+  margin:-30px 5px 0 0;
+  width:260px;
+}
+.caltbe table {
+  color:#707070;
+  font-family:NanumGothic, NanumGothicWeb, Verdana, 굴림, Gulim, Dotum, 돋움, sans-serif;
+  margin:5px auto;
+  padding:0 10px;
+  width:231px;
+}
+.caltbe table caption {
+  padding:0 0 3px;
+}
+.caltbe table thead th {
+  background-image:url(http://www.yonginlib.go.kr/bora/z00_images/bg_calendar.png);
+  background-position:-20px 0;
+  background-repeat:no-repeat no-repeat;
+  padding:3px;
+}
+.caltbe table thead .sun {
+  background-image:url(http://www.yonginlib.go.kr/bora/z00_images/bg_calendar.png);
+  background-position:0 0;
+  background-repeat:no-repeat no-repeat;
+}
+.caltbe table thead .sat {
+  background-image:url(http://www.yonginlib.go.kr/bora/z00_images/bg_calendar.png);
+  background-position:100% 0;
+  background-repeat:no-repeat no-repeat;
+}
+.caltbe table tbody td {
+  border-color:#FFFFFF #FFFFFF #F3F3F3;
+  border-style:solid;
+  border-width:1px;
+  letter-spacing:-1px;
+  padding:1px 5px;
+  text-align:right;
+}
+.caltbe caption {
+  color:#398ED0;
+}
+.caltbe .yy {
+  font-size:14px;
+}
+.caltbe .mm {
+  font-size:32px;
+}
+.caltbe .sun {
+  color:#CA4B42;
+}
+.caltbe .sat {
+  color:#2C91CB;
+}
+.free {
+  background-color:#FFC513;
+  background-position:initial initial;
+  background-repeat:initial initial;
+}
+.event {
+  background-color:#A7CC42;
+  background-position:initial initial;
+  background-repeat:initial initial;
+}
+#ex {
+  color:#FFFFFF;
+  font-size:11px;
+  letter-spacing:-1px;
+  margin:7px auto;
+  text-align:right;
+  width:231px;
+}
+#ex span {
+  border-bottom-left-radius:3px;
+  border-bottom-right-radius:3px;
+  border-top-left-radius:3px;
+  border-top-right-radius:3px;
+  padding:3px 5px;
+}
+#recommand_book_wrap {
+  clear:both;
+  display:inline-block;
+  float:left;
+  padding:30px 0 0;
+  width:100%;
+}
+#recommand_book_wrap div {
+  background-image:url(http://www.yonginlib.go.kr/bora/z00_images/bg_main_recommand.png);
+  background-position:initial initial;
+  background-repeat:no-repeat no-repeat;
+  float:left;
+  height:210px;
+  padding:0 12px;
+  position:relative;
+  width:300px;
+}
+#recommand_book_wrap div h2 {
+  color:#FFFFFF;
+  font-size:13px;
+  padding:7px 8px;
+}
+#recommand_book_wrap li {
+  background-image:url(http://www.yonginlib.go.kr/bora/z00_images/bg_book_thumnail.png);
+  background-position:0 118px;
+  background-repeat:no-repeat no-repeat;
+  color:#4E4E4E;
+  display:block;
+  float:left;
+  height:157px;
+  line-height:1.2em;
+  overflow:hidden;
+  padding:8px 5px 8px 8px;
+  width:87px;
+}
+#recommand_book_wrap li img {
+  float:left;
+  height:110px;
+  padding:8px 10px 18px 2px;
+  width:78px;
+}
+#recommand_book_wrap a.more {
+  background-image:url(http://www.yonginlib.go.kr/bora/z00_images/btn_bg_more_01.png);
+  background-position:initial initial;
+  background-repeat:no-repeat no-repeat;
+  color:#FFFFFF;
+  font-family:NanumGothic, NanumGothicWeb, Verdana, 굴림, Gulim, Dotum, 돋움, sans-serif;
+  font-size:11px;
+  letter-spacing:-1px;
+  padding:0 8px 1px 16px;
+  position:absolute;
+  right:21px;
+  top:5px;
+}
+#recommand_book_wrap a.more:hover {
+  color:#FFFF00;
+}
+#footer_wrap {
+  clear:both;
+  margin:20px auto;
+  position:relative;
+  width:975px;
+}
+.etc_link {
+  padding:10px 0 0;
+}
+.etc_link li {
+  background-image:url(http://www.yonginlib.go.kr/bora/z00_images/deco_bar_02.gif);
+  background-position:0 50%;
+  background-repeat:no-repeat no-repeat;
+  display:inline;
+}
+.etc_link li:first-child {
+  background-image:none;
+  background-position:initial initial;
+  background-repeat:initial initial;
+  margin:0 0 0 -8px;
+}
+.etc_link a {
+  color:#BB8A63;
+  padding:8px 8px 8px 10px;
+}
+.etc_link a:hover {
+  color:#CC6600;
+}
+.foot_info {
+  padding:10px 0;
+}
+.foot_info .adress {
+  color:#797979;
+}
+.foot_info .copyright {
+  color:#AEAEAE;
+  font-size:11px;
+}
+#visit_count {
+  display:none;
+}
+#index #visit_count {
+  display:block;
+  position:absolute;
+  right:-10px;
+  top:10px;
+  width:190px;
+}
+#visit_count dt, #visit_count dd {
+  color:#4188B1;
+  float:left;
+}
+#visit_count dt.visit_today {
+  width:63px;
+}
+#visit_count dt.total {
+  width:33px;
+}
+#visit_count dd.visit_today {
+  color:#7A93A2;
+  width:40px;
+}
+#visit_count dd.total {
+  color:#7A93A2;
+  width:53px;
+}
+
+#divMenu_main {
+  left:505px;
+  margin:250px 0 0 50%;
+  position:absolute;
+  width:84px;
+  z-index:100;
+}
+#divMenu_main li {
+  float:left;
+}
+#divMenu_main li a {
+  border:1px solid #CCCCCC;
+  display:block;
+  float:left;
+  line-height:1.2em;
+  margin:2px;
+  padding:4px;
+  text-align:center;
+  width:70px;
+}
+#quick_title {
+  background-image:url(http://www.yonginlib.go.kr/bora/z00_images/bg_quick_title.png);
+  background-position:initial initial;
+  background-repeat:no-repeat no-repeat;
+  color:#FFFFFF;
+  display:block;
+  float:left;
+  font-size:12px;
+  height:22px;
+  padding:1px 0 0;
+  text-align:center;
+  width:84px;
+}
+a#quick_top {
+  background-image:url(http://www.yonginlib.go.kr/bora/z00_images/bg_quick_top.png);
+  background-position:initial initial;
+  background-repeat:no-repeat no-repeat;
+  color:#FFFFFF;
+  display:block;
+  float:left;
+  font-size:11px;
+  height:24px;
+  letter-spacing:-1px;
+  padding:8px 0 0;
+  text-align:center;
+  width:84px;
+}
+#sub_menu {
+  float:left;
+  margin:200px 0 0;
+  padding:16px 11px 145px;
+  width:172px;
+}
+#sub_menu h2 {
+  font-size:16px;
+  padding:0 0 20px 10px;
+}
+#sub_menu li {
+  display:inline;
+}
+#sub_menu li a {
+  display:block;
+  float:left;
+  padding:4px 10px 8px;
+  width:152px;
+}
+#sub_menu li a:hover {
+  background-image:url(http://www.yonginlib.go.kr/bora/z00_images/btn_left_menu_on.png);
+  background-position:initial initial;
+  background-repeat:no-repeat no-repeat;
+  color:#FFFFFF;
+}
+#sub_menu ul {
+  float:left;
+  width:100%;
+}
+#sub_menu ul ul {
+  padding:0 0 8px 6px;
+}
+#sub_menu li li a {
+  background-image:url(http://www.yonginlib.go.kr/bora/z00_images/deco_dot_underline_01.png);
+  background-position:50% 100%;
+  background-repeat:repeat no-repeat;
+  color:#797979;
+  display:block;
+  padding:3px 10px 3px 19px;
+  width:132px;
+}
+#sub_menu li li a:hover {
+  background-image:url(http://www.yonginlib.go.kr/bora/z00_images/bg_sub_menu_02.png);
+  background-position:50% 100%;
+  background-repeat:no-repeat no-repeat;
+  color:#241B14;
+}
+#a10 #sub_menu, #a20 #sub_menu, #a30 #sub_menu, #a40 #sub_menu, #a50 #sub_menu, #c10 #sub_menu, #c20 #sub_menu, #c30 #sub_menu, #c40 #sub_menu, #c50 #sub_menu, #d10 #sub_menu, #d20 #sub_menu, #d30 #sub_menu, #d40 #sub_menu, #d50 #sub_menu, #d60 #sub_menu, #d70 #sub_menu, #d80 #sub_menu, #d90 #sub_menu, .sub_menu_f00, #g10 #sub_menu, #g20 #sub_menu, #g30 #sub_menu, #g40 #sub_menu, #g50 #sub_menu, #g60 #sub_menu, #g70 #sub_menu, #g80 #sub_menu {
+  background-image:url(http://www.yonginlib.go.kr/bora/z00_images/bg_left_01.png);
+  background-position:initial initial;
+  background-repeat:no-repeat no-repeat;
+}
+#b10 #sub_menu, #b20 #sub_menu, #b30 #sub_menu, #b40 #sub_menu, #b50 #sub_menu, #b60 #sub_menu, #b70 #sub_menu, #b80 #sub_menu, #b90 #sub_menu, #b95 #sub_menu, .sub_menu_e00 {
+  background-image:url(http://www.yonginlib.go.kr/bora/z00_images/bg_left_10.png);
+  background-position:initial initial;
+  background-repeat:no-repeat no-repeat;
+}
+.a10 .a10 a, .a20 .a20 a, .a30 .a30 a, .a40 .a40 a, .a41 .a40 a, .a42 .a40 a, .a43 .a40 a, .a44 .a40 a, .a50 .a50 a, .b10 .b10 a, .b20 .b20 a, .b30 .b30 a, .b40 .b40 a, .b50 .b50 a, .b60 .b60 a, .b70 .b70 a, .b80 .b80 a, .b90 .b90 a, .b95 .b95 a, .c10 .c10 a, .c20 .c20 a, .c30 .c30 a, .c40 .c40 a, .c50 .c50 a, #d10 .d10 a, #d20 .d20 a, #d30 .d30 a, #d40 .d40 a, #d50 .d50 a, #d60 .d60 a, .e10 .e10 a, .e10 .e11 a, .e10 .e12 a, .e10 .e13 a, .e10 .e14 a, .e10 .e15 a, .e10 .e16 a, .e20 .e20 a, .e20 .e21 a, .e20 .e22 a, .e20 .e23 a, .e30 .e30 a, .e40 .e40 a, .e50 .e50 a, .f10 .f10 a, .f20 .f20 a, .f30 .f30 a, .f40 .f40 a, .f50 .f50 a, .f60 .f60 a, .f70 .f70 a, .f80 .f80 a, .f90 .f90 a, .g10 .g10 a, .g20 .g20 a, .g30 .g30 a, .g40 .g40 a, .g50 .g50 a, .g60 .g60 a, .g70 .g70 a, .g80 .g80 a, .g90 .g90 a {
+  background-image:url(http://www.yonginlib.go.kr/bora/z00_images/btn_left_menu_on.png);
+  background-position:initial initial;
+  background-repeat:no-repeat no-repeat;
+  color:#FFFFFF;
+}
+.e10 #sub_menu .e10 .sub_menu_e11 a, .e10 #sub_menu .e11 .sub_menu_e12 a, .e10 #sub_menu .e12 .sub_menu_e13 a, .e10 #sub_menu .e13 .sub_menu_e14 a, .e10 #sub_menu .e14 .sub_menu_e15 a, .e10 #sub_menu .e15 .sub_menu_e16 a, .e10 #sub_menu .e16 .sub_menu_e17 a, .e20 #sub_menu .e20 .sub_menu_e21 a, .e20 #sub_menu .e21 .sub_menu_e22 a, .e20 #sub_menu .e22 .sub_menu_e23 a, .e20 #sub_menu .e23 .sub_menu_e24 a, .e30 #sub_menu .e30 .sub_menu_e31 a, .e30 #sub_menu .e31 .sub_menu_e32 a {
+  background-image:url(http://www.yonginlib.go.kr/bora/z00_images/bg_sub_menu_02.png);
+  background-position:50% 100%;
+  background-repeat:no-repeat no-repeat;
+  color:#241B14;
+}
+.sub_contents_wrap {
+  float:right;
+  margin:200px 0 0;
+  padding:0 4px 0 0;
+  width:750px;
+}
+.sub_contents_wrap h3 {
+  color:#000000;
+  font-size:18px;
+  line-height:1.2em;
+  padding:0 0 5px;
+}
+.h3_note {
+  color:#9B9898;
+  line-height:1.2em;
+  padding:0 0 10px;
+}
+.h3_note_board {
+  color:#9B9898;
+  line-height:1.2em;
+  padding:0 0 10px;
+}
+.page_position {
+  color:#797979;
+  float:right;
+  font-size:11px;
+  padding:3px 0 0;
+  text-align:right;
+  width:250px;
+}
+.joinok_wrap {
+  border:2px solid #53504B;
+  border-bottom-left-radius:8px;
+  border-bottom-right-radius:8px;
+  border-top-left-radius:8px;
+  border-top-right-radius:8px;
+  float:left;
+  margin:30px 0 10px;
+}
+.joinok_wrap dl {
+  padding:5px 20px;
+  width:710px;
+}
+.joinok_wrap dt, .joinok_wrap dd {
+  border-top-color:#DDDDDD;
+  border-top-style:dotted;
+  border-top-width:1px;
+  display:block;
+  float:left;
+  padding:6px 0;
+  width:15%;
+}
+.joinok_wrap dt.first, .joinok_wrap dd.first {
+  border-top-style:none;
+}
+.joinok_wrap dd {
+  width:85%;
+}
+.joinok_wrap input, .joinok_wrap select {
+  background-color:#F8F8F8;
+  background-position:initial initial;
+  background-repeat:initial initial;
+  border:1px solid #DDDDDD;
+  width:180px;
+}
+.joinok_wrap input.inp32, .joinok_wrap .sel53, .joinok_wrap .inp26 {
+  width:55px;
+}
+.joinok_wrap input.inp470 {
+  width:560px;
+}
+.joinok_wrap h4 {
+  background-image:url(http://www.yonginlib.go.kr/bora/z00_images/deco_dot_01.gif);
+  background-position:0 8px;
+  background-repeat:no-repeat no-repeat;
+  color:#000000;
+  display:block;
+  float:left;
+  font-size:12px;
+  margin:-25px 0 0;
+  padding:0 0 0 1%;
+  width:99%;
+}
+#b20_tab {
+  border-bottom-color:#53504B;
+  border-bottom-style:solid;
+  border-bottom-width:2px;
+  display:block;
+  float:left;
+  margin:15px 0 10px;
+  width:100%;
+}
+#b20_tab li {
+  border-bottom-left-radius:0;
+  border-bottom-right-radius:0;
+  border-left-color:#53504B;
+  border-left-width:2px;
+  border-right-color:#53504B;
+  border-right-width:2px;
+  border-style:solid solid none;
+  border-top-color:#53504B;
+  border-top-left-radius:8px;
+  border-top-right-radius:8px;
+  border-top-width:2px;
+  display:block;
+  float:left;
+  margin:0 -2px 0 0;
+  text-align:center;
+  width:180px;
+}
+#b20_tab li a {
+  display:block;
+  padding:6px 0;
+  width:100%;
+}
+#b20_tab li a:hover {
+  background-color:#53504B;
+  background-position:initial initial;
+  background-repeat:initial initial;
+  color:#FFCC33;
+}
+.b20_active .tab_01, .b21_active .tab_02 {
+  background-color:#53504B;
+  background-position:initial initial;
+  background-repeat:initial initial;
+}
+.b20_active .tab_01 a, .b21_active .tab_02 a {
+  color:#FFFFFF;
+}
+.hope_write {
+  border:2px solid #53504B;
+  border-bottom-left-radius:8px;
+  border-bottom-right-radius:8px;
+  border-top-left-radius:8px;
+  border-top-right-radius:8px;
+  float:left;
+  margin:30px 0 10px;
+}
+.hope_write dl {
+  padding:6px 20px;
+  width:710px;
+}
+.hope_write dt, .hope_write dd {
+  border-top-color:#DDDDDD;
+  border-top-style:dotted;
+  border-top-width:1px;
+  display:block;
+  float:left;
+  padding:6px 0;
+  width:15%;
+}
+.hope_write dd {
+  width:85%;
+}
+.hope_write input, .hope_write select {
+  background-color:#F8F8F8;
+  background-position:initial initial;
+  background-repeat:initial initial;
+  border:1px solid #DDDDDD;
+  width:180px;
+}
+.hope_write input.inp32, .hope_write .sel53, .hope_write .inp26 {
+  width:55px;
+}
+.hope_write input.inp470 {
+  width:560px;
+}
+.hope_write h4 {
+  background-image:url(http://www.yonginlib.go.kr/bora/z00_images/deco_dot_01.gif);
+  background-position:0 8px;
+  background-repeat:no-repeat no-repeat;
+  color:#000000;
+  display:block;
+  float:left;
+  font-size:12px;
+  margin:-24px 0 0;
+  padding:0 0 0 1%;
+  width:99%;
+}
+.hope_write span {
+  display:block;
+  font-weight:normal;
+  margin:-24px 0 0 60px;
+  width:300px;
+}
+.hope_write dd input.inp_no {
+  background-image:none;
+  background-position:initial initial;
+  background-repeat:initial initial;
+  border:none;
+  width:25px;
+}
+.hope_write .first {
+  border:none;
+}
+#b30_tab {
+  border-bottom-color:#53504B;
+  border-bottom-style:solid;
+  border-bottom-width:2px;
+  display:block;
+  float:left;
+  margin:15px 0 10px;
+  width:100%;
+}
+#b30_tab li {
+  border-bottom-left-radius:0;
+  border-bottom-right-radius:0;
+  border-left-color:#53504B;
+  border-left-width:2px;
+  border-right-color:#53504B;
+  border-right-width:2px;
+  border-style:solid solid none;
+  border-top-color:#53504B;
+  border-top-left-radius:8px;
+  border-top-right-radius:8px;
+  border-top-width:2px;
+  display:block;
+  float:left;
+  margin:0 -2px 0 0;
+  text-align:center;
+  width:120px;
+}
+#b30_tab li a {
+  display:block;
+  padding:6px 0;
+  width:100%;
+}
+#b30_tab li a:hover {
+  background-color:#53504B;
+  background-position:initial initial;
+  background-repeat:initial initial;
+  color:#FFCC33;
+}
+.b30_active .tab_01, .b31_active .tab_02 {
+  background-color:#53504B;
+  background-position:initial initial;
+  background-repeat:initial initial;
+}
+.b30_active .tab_01 a, .b31_active .tab_02 a {
+  color:#FFFFFF;
+}
+#b30_popup_wrap {
+  background-image:url(http://www.yonginlib.go.kr/bora/z00_images/bg_12.png);
+  background-position:initial initial;
+  background-repeat:initial initial;
+  height:100%;
+  position:absolute;
+  width:100%;
+  z-index:100000;
+}
+#b30_popup_wrap div {
+  background-image:url(http://www.yonginlib.go.kr/bora/z00_images/bg_b30_popup_bg.png);
+  background-position:initial initial;
+  background-repeat:no-repeat no-repeat;
+  height:243px;
+  margin:300px auto;
+  padding:35px 0 0 20px;
+  position:relative;
+  width:604px;
+}
+#b30_popup_wrap h2 {
+  color:#FFFFFF;
+  font-size:18px;
+}
+#b30_popup_wrap ul {
+  padding:20px 0 0;
+}
+#b30_popup_wrap ul li {
+  background-image:url(http://www.yonginlib.go.kr/bora/z00_images/deco_dot_01.gif);
+  background-position:0 50%;
+  background-repeat:no-repeat no-repeat;
+  padding:0 0 0 10px;
+}
+#b30_popup_wrap div img {
+  position:absolute;
+  right:30px;
+  top:20px;
+}
+#b30 h5 {
+  background-image:url(http://www.yonginlib.go.kr/bora/z00_images/bg_a01.png);
+  background-position:initial initial;
+  background-repeat:no-repeat no-repeat;
+  color:#FFFFFF;
+  font-size:12px;
+  font-weight:bold;
+  margin:10px 0 0;
+  padding:2px 12px 15px;
+}
+#b30_exception li {
+  background-image:url(http://www.yonginlib.go.kr/bora/z00_images/deco_dot_01.gif);
+  background-position:3px 8px;
+  background-repeat:no-repeat no-repeat;
+  padding:0 0 2px 10px;
+}
+#b30_exception li span {
+  color:#006699;
+  display:block;
+}
+#b30_exception li strong {
+  color:#FF6600;
+}
+.c10_search_title {
+  background-color:#F8F8F8;
+  background-position:initial initial;
+  background-repeat:initial initial;
+  float:left;
+}
+.c10_search_title h4 {
+  font-size:12px;
+}
+.c10_search_title a {
+  color:#FFFFFF;
+  padding:8px 14px 4px;
+}
+#s_choice, .inp260, .inp368 {
+  background-image:none;
+  background-position:initial initial;
+  background-repeat:initial initial;
+  border:none;
+  padding:0 20px;
+  width:300px;
+}
+#field0 {
+  width:167px;
+}
+table.table_search_10, table.table_search_12, .table_search_14, .table_search_16 {
+  border:2px solid #544F44;
+  border-bottom-left-radius:8px;
+  border-bottom-right-radius:8px;
+  border-top-left-radius:8px;
+  border-top-right-radius:8px;
+  width:746px;
+}
+.table_search_10 caption, .table_search_12 caption {
+  color:#000000;
+  padding:5px 0;
+  text-align:left;
+}
+.table_search_10 thead th {
+  background-color:#F8F8F8;
+  background-image:url(http://www.yonginlib.go.kr/bora/z00_images/icon_search_01.gif);
+  background-position:23px 18px;
+  background-repeat:no-repeat no-repeat;
+  border-bottom-color:#EAEAEA;
+  border-bottom-left-radius:0;
+  border-bottom-right-radius:0;
+  border-bottom-style:solid;
+  border-bottom-width:1px;
+  border-top-left-radius:8px;
+  border-top-right-radius:0;
+  color:#000000;
+  padding:17px 0 13px;
+  width:130px;
+}
+.table_search_10 thead td {
+  background-color:#F8F8F8;
+  background-image:url(http://www.yonginlib.go.kr/bora/z00_images/bg_search_02.png);
+  background-position:170px 16px;
+  background-repeat:no-repeat no-repeat;
+  border-bottom-color:#EAEAEA;
+  border-bottom-left-radius:0;
+  border-bottom-right-radius:0;
+  border-bottom-style:solid;
+  border-bottom-width:1px;
+  border-top-left-radius:0;
+  border-top-right-radius:8px;
+  padding:17px 0 13px;
+}
+.table_search_10 thead td select {
+  vertical-align:bottom;
+}
+.table_search_10 thead td a {
+  color:#FFFFFF;
+  padding:0 17px;
+}
+.table_search_10 tbody th, .table_search_10 tbody td {
+  border-bottom-color:#D1D1D1;
+  border-bottom-style:dotted;
+  border-bottom-width:1px;
+  padding:5px 0;
+  text-align:left;
+}
+.table_search_10 tbody th {
+  margin:0 0 0 20px;
+  padding:5px 28px;
+}
+.table_search_12 caption {
+  color:#000000;
+  padding:5px 0;
+  text-align:left;
+}
+.table_search_12 thead th {
+  background-color:#F8F8F8;
+  background-image:url(http://www.yonginlib.go.kr/bora/z00_images/icon_search_01.gif);
+  background-position:23px 18px;
+  background-repeat:no-repeat no-repeat;
+  border-bottom-color:#EAEAEA;
+  border-bottom-left-radius:0;
+  border-bottom-right-radius:0;
+  border-bottom-style:solid;
+  border-bottom-width:1px;
+  border-top-left-radius:8px;
+  border-top-right-radius:0;
+  color:#000000;
+  padding:17px 0 13px 45px;
+  text-align:left;
+  width:85px;
+}
+.table_search_12 thead td {
+  background-color:#F8F8F8;
+  background-image:url(http://www.yonginlib.go.kr/bora/z00_images/bg_search_02.png);
+  background-position:170px 16px;
+  background-repeat:no-repeat no-repeat;
+  border-bottom-color:#EAEAEA;
+  border-bottom-left-radius:0;
+  border-bottom-right-radius:0;
+  border-bottom-style:solid;
+  border-bottom-width:1px;
+  border-top-left-radius:0;
+  border-top-right-radius:8px;
+  padding:17px 0 13px;
+}
+.table_search_12 thead td select {
+  vertical-align:bottom;
+}
+.table_search_12 thead td a {
+  color:#FFFFFF;
+  padding:0 17px;
+}
+.table_search_14 {
+  margin:0 0 5px;
+}
+.table_search_14 caption {
+  border-bottom-left-radius:8px;
+  border-bottom-right-radius:8px;
+  border-top-left-radius:8px;
+  border-top-right-radius:8px;
+  color:#000000;
+  padding:5px 0;
+  text-align:left;
+}
+.table_search_14 tbody th {
+  background-color:#F8F8F8;
+  background-position:initial initial;
+  background-repeat:initial initial;
+  border-bottom-color:#CCCCCC;
+  border-bottom-style:dotted;
+  border-bottom-width:1px;
+  border-right-color:#EAEAEA;
+  border-right-style:solid;
+  border-right-width:1px;
+  color:#000000;
+  padding:10px 15px;
+  text-align:left;
+  vertical-align:middle;
+}
+.table_search_14 tbody td {
+  border-bottom-color:#EAEAEA;
+  border-bottom-style:dotted;
+  border-bottom-width:1px;
+  color:#797979;
+  padding:10px 15px;
+  vertical-align:middle;
+}
+.table_search_16 {
+  margin:25px 0 5px;
+}
+.table_search_16 caption {
+  border-bottom-left-radius:8px;
+  border-bottom-right-radius:8px;
+  border-top-left-radius:8px;
+  border-top-right-radius:8px;
+  color:#000000;
+  padding:5px 0;
+  text-align:left;
+}
+.table_search_16 thead th {
+  background-color:#F8F8F8;
+  background-position:initial initial;
+  background-repeat:initial initial;
+  color:#000000;
+  line-height:1.2em;
+  padding:7px 4px;
+  vertical-align:middle;
+}
+.table_search_16 tbody td {
+  border-top-color:#EAEAEA;
+  border-top-style:dotted;
+  border-top-width:1px;
+  color:#797979;
+  padding:7px 4px;
+  text-align:center;
+}
+.table_search_16 .print a {
+  background-color:#77AFC4;
+  background-image:url(http://www.yonginlib.go.kr/bora/z00_images/btn_bg_b10.png);
+  background-position:initial initial;
+  background-repeat:repeat no-repeat;
+  border-bottom-left-radius:3px;
+  border-bottom-right-radius:3px;
+  border-top-left-radius:3px;
+  border-top-right-radius:3px;
+  color:#FFFFFF;
+  padding:3px 7px;
+}
+.table_search_16 .print a:hover {
+  background-color:#649CB1;
+  background-position:initial initial;
+  background-repeat:initial initial;
+}
+.table_search_16 .reserv a {
+  background-image:url(http://www.yonginlib.go.kr/bora/z00_images/btn_bg_g10.png);
+  background-position:initial initial;
+  background-repeat:repeat no-repeat;
+  border-bottom-left-radius:3px;
+  border-bottom-right-radius:3px;
+  border-top-left-radius:3px;
+  border-top-right-radius:3px;
+  color:#FFFFFF;
+  padding:3px 7px;
+}
+.table_search_16 .reserv a:hover {
+  background-color:#728B5B;
+  background-position:initial initial;
+  background-repeat:initial initial;
+}
+.table_list_10 {
+  border-bottom-left-radius:3px;
+  border-bottom-right-radius:3px;
+  border-top-left-radius:3px;
+  border-top-right-radius:3px;
+  color:#797979;
+  margin:0 0 15px;
+  width:100%;
+}
+.c10 .table_list_10 {
+  margin-top:20px;
+}
+.table_list_10 a {
+  color:#666666;
+}
+.table_list_10 a:hover {
+  color:#FF6600;
+}
+.table_list_10 caption {
+  color:#797979;
+  padding:5px 0;
+  text-align:right;
+}
+.table_list_10 thead th {
+  background-color:#F8F8F8;
+  background-position:initial initial;
+  background-repeat:initial initial;
+  border-bottom-color:#53504B;
+  border-bottom-style:solid;
+  border-bottom-width:2px;
+  border-top-color:#53504B;
+  border-top-style:solid;
+  border-top-width:2px;
+  padding:10px 0;
+}
+.table_list_10 tbody th, .table_list_10 tbody td {
+  border-bottom-color:#D2D2D2;
+  border-bottom-style:solid;
+  border-bottom-width:1px;
+  padding:6px;
+  text-align:center;
+  vertical-align:middle;
+}
+.table_list_10 tbody .book, .table_list_10 tbody .headline, .table_list_10 tbody .class_title {
+  text-align:left;
+}
+.table_list_10 .notice th, .table_list_10 .notice td, .table_list_10 .notice td a {
+  background-color:#F8F8F8;
+  background-position:initial initial;
+  background-repeat:initial initial;
+  color:#466893;
+}
+.table_list_10 .notice td a:hover {
+  color:#4386D8;
+}
+.table_list_10 tbody .date, .table_list_10 tbody .count, .table_list_10 tbody .during {
+  color:#999999;
+  font-size:11px;
+  letter-spacing:-1px;
+}
+thead .left {
+  border-left-color:#53504B;
+  border-left-style:solid;
+  border-left-width:2px;
+}
+thead .right {
+  border-right-color:#53504B;
+  border-right-style:solid;
+  border-right-width:2px;
+}
+#table_list_11 {
+  border-bottom-color:#CCCCCC;
+  border-bottom-style:solid;
+  border-bottom-width:1px;
+  margin:0 0 10px;
+  padding:0 0 20px;
+}
+#table_list_11 table {
+  border:2px solid #53504B;
+  border-bottom-left-radius:3px;
+  border-bottom-right-radius:3px;
+  border-top-left-radius:3px;
+  border-top-right-radius:3px;
+  color:#333333;
+  margin:0 0 20px;
+  width:100%;
+}
+#table_list_11 table caption {
+  display:none;
+}
+#table_list_11 table thead td {
+  color:#666666;
+}
+#table_list_11 table tbody td {
+  color:#797979;
+}
+#table_list_11 table thead th, #table_list_11 table thead td {
+  background-color:#F8F8F8;
+  background-position:initial initial;
+  background-repeat:initial initial;
+  border-bottom-color:#CCCCCC;
+  border-bottom-style:dotted;
+  border-bottom-width:1px;
+}
+#table_list_11 table th, #table_list_11 table td {
+  padding:6px;
+}
+#table_list_11 .secret_txt {
+  width:40px;
+}
+#table_list_11 #board_write_headline {
+  width:550px;
+}
+#table_list_11 .textarea {
+  border:1px solid #AAAAAA;
+  width:100%;
+}
+#table_list_11 .textarea textarea {
+  border:none;
+  height:200px;
+  overflow:auto;
+  width:99%;
+}
+.table_12 {
+  border:2px solid #53504B;
+  border-bottom-left-radius:8px;
+  border-bottom-right-radius:8px;
+  border-top-left-radius:8px;
+  border-top-right-radius:8px;
+  margin:20px 0;
+  padding:1px 0;
+}
+.table_12 table {
+  border-collapse:collapse;
+  width:100%;
+}
+.table_12 caption {
+  border-bottom-color:#CCCCCC;
+  border-bottom-style:dotted;
+  border-bottom-width:1px;
+  color:#000000;
+  padding:10px 15px;
+  text-align:left;
+}
+.table_12 thead th {
+  background-color:#F8F9F9;
+  background-position:initial initial;
+  background-repeat:initial initial;
+  font-size:14px;
+  padding:15px;
+  text-align:left;
+}
+.table_12 tbody th {
+  background-color:#F8F8F8;
+  background-position:initial initial;
+  background-repeat:initial initial;
+  border-bottom-color:#EAEAEA;
+  border-bottom-width:1px;
+  border-right-color:#EAEAEA;
+  border-right-width:1px;
+  border-style:solid solid solid none;
+  border-top-color:#EAEAEA;
+  border-top-width:1px;
+  color:#000000;
+  padding:10px 15px;
+  text-align:left;
+  vertical-align:middle;
+}
+.table_12 tbody td {
+  border-top-color:#EAEAEA;
+  border-top-style:dotted;
+  border-top-width:1px;
+  color:#797979;
+  padding:10px 15px;
+  vertical-align:middle;
+}
+.table_12 input {
+  background-color:#F8F8F8;
+  background-position:initial initial;
+  background-repeat:initial initial;
+  border:1px solid #DDDDDD;
+}
+.table_12 input.zipcode {
+  width:40px;
+}
+.table_12 input.last_adress {
+  margin:5px 0;
+  width:400px;
+}
+.table_13 {
+  border:2px solid #53504B;
+  border-bottom-left-radius:8px;
+  border-bottom-right-radius:8px;
+  border-top-left-radius:8px;
+  border-top-right-radius:8px;
+  margin:20px 0;
+  padding:1px 0;
+}
+.table_13 table {
+  text-align:center;
+  width:100%;
+}
+.table_13 caption {
+  background-color:#F0F0F0;
+  background-position:initial initial;
+  background-repeat:initial initial;
+  border-bottom-color:#CCCCCC;
+  border-bottom-style:dotted;
+  border-bottom-width:1px;
+  color:#000000;
+  padding:10px 15px;
+  text-align:left;
+}
+.table_13 thead th {
+  background-color:#F8F8F8;
+  background-position:initial initial;
+  background-repeat:initial initial;
+  padding:10px;
+}
+.table_13 tbody th {
+  background-color:#F8F8F8;
+  background-position:initial initial;
+  background-repeat:initial initial;
+  border-color:#EAEAEA #EAEAEA #CCCCCC;
+  border-style:solid solid dotted;
+  border-width:1px;
+  color:#000000;
+  padding:10px 15px;
+  text-align:left;
+  vertical-align:middle;
+}
+.table_13 tbody td {
+  border-bottom-color:#EAEAEA;
+  border-bottom-style:dotted;
+  border-bottom-width:1px;
+  color:#797979;
+  padding:10px 15px;
+  vertical-align:middle;
+}
+.table_13 table input {
+  width:auto;
+}
+.table_14 {
+  border-bottom-left-radius:3px;
+  border-bottom-right-radius:3px;
+  border-top-left-radius:3px;
+  border-top-right-radius:3px;
+  color:#797979;
+  float:left;
+  margin:0 0 15px;
+  width:100%;
+}
+.table_14 a {
+  color:#666666;
+}
+.table_14 a:hover {
+  color:#FF6600;
+}
+.table_14 caption {
+  background-image:url(http://www.yonginlib.go.kr/bora/z00_images/bg_a03.png);
+  background-position:initial initial;
+  background-repeat:no-repeat no-repeat;
+  color:#FFFFFF;
+  font-size:12px;
+  font-weight:bold;
+  margin:20px 0 5px;
+  padding:2px 12px 6px;
+  text-align:left;
+}
+.table_14 thead th {
+  background-color:#F8F8F8;
+  background-position:initial initial;
+  background-repeat:initial initial;
+  border-bottom-color:#53504B;
+  border-bottom-style:solid;
+  border-bottom-width:2px;
+  border-top-color:#53504B;
+  border-top-style:solid;
+  border-top-width:2px;
+  padding:10px 0;
+}
+.table_14 tbody th, .table_14 tbody td {
+  border-bottom-color:#D2D2D2;
+  border-bottom-style:solid;
+  border-bottom-width:1px;
+  padding:6px;
+  text-align:center;
+  vertical-align:middle;
+}
+.table_14 tbody .book, .table_14 tbody .headline, .table_14 tbody .class_title {
+  text-align:left;
+}
+.table_14 .notice th, .table_14 .notice td, .table_14 .notice td a {
+  background-color:#F8F8F8;
+  background-position:initial initial;
+  background-repeat:initial initial;
+  color:#466893;
+}
+.table_14 .notice td a:hover {
+  color:#4386D8;
+}
+.table_14 tbody .date, .table_14 tbody .count, .table_14 tbody .during {
+  color:#999999;
+  font-size:11px;
+  letter-spacing:-1px;
+}
+#library_choice {
+  margin:10px 0 -20px;
+}
+div.source_text {
+  border-top-color:#CCCCCC;
+  border-top-style:dotted;
+  border-top-width:1px;
+  color:#666666;
+  margin:10px 0 0;
+  padding:20px 0 0;
+}
+p.source_text {
+  background-color:#F8F8F8;
+  background-position:initial initial;
+  background-repeat:initial initial;
+  border:1px solid #DDDDDD;
+  border-bottom-left-radius:3px;
+  border-bottom-right-radius:3px;
+  border-top-left-radius:3px;
+  border-top-right-radius:3px;
+  display:block;
+  margin:0 0 10px;
+  padding:2px;
+  text-align:center;
+  width:80px;
+}
+#visit_schedule table {
+  border:2px solid #53504B;
+  border-bottom-left-radius:8px;
+  border-bottom-right-radius:8px;
+  border-top-left-radius:8px;
+  border-top-right-radius:8px;
+  color:#797979;
+  width:100%;
+}
+#visit_schedule table caption {
+  padding:5px 0;
+}
+#visit_schedule table caption img {
+  vertical-align:text-bottom;
+}
+#visit_schedule table caption .yy {
+  font-size:18px;
+}
+#visit_schedule table caption .mm {
+  font-size:36px;
+}
+#visit_schedule thead th {
+  background-color:#F8F8F8;
+  background-position:initial initial;
+  background-repeat:initial initial;
+  border-bottom-color:#DDDDDD;
+  border-bottom-style:solid;
+  border-bottom-width:1px;
+  padding:15px 0;
+  width:13%;
+}
+#visit_schedule .sun {
+  color:#CA4B42;
+}
+#visit_schedule .sat {
+  color:#2C91CB;
+}
+#visit_schedule tbody td {
+  border-bottom-color:#DDDDDD;
+  border-bottom-style:dotted;
+  border-bottom-width:1px;
+  border-left-color:#FFFFFF;
+  border-left-style:solid;
+  border-left-width:1px;
+  padding:10px 10px 10px 20px;
+}
+#visit_schedule .visit_01 {
+  background-color:#F5DD9A;
+  background-position:initial initial;
+  background-repeat:initial initial;
+  color:#663300;
+}
+#visit_schedule .visit_01 a {
+  background-color:#F5DD9A;
+  background-position:initial initial;
+  background-repeat:initial initial;
+  color:#663300;
+}
+#visit_schedule .visit_01 a:hover {
+  color:#FF6600;
+}
+#visit_schedule .visit_01 a, #visit_schedule .visit_02 span {
+  padding:0 0 0 10px;
+}
+#visit_schedule .visit_02 {
+  background-color:#D9E79D;
+  background-position:initial initial;
+  background-repeat:initial initial;
+  color:#003333;
+}
+#visit_schedule .free_day {
+  background-color:#F8F8F8;
+  background-position:initial initial;
+  background-repeat:initial initial;
+  color:#999999;
+}
+#visit_guide h4 {
+  clear:both;
+  color:#356D98;
+  font-size:14px;
+  margin:0 0 7px;
+  padding:10px 0 7px;
+}
+#visit_guide h5 {
+  background-color:#F8F8F8;
+  background-position:initial initial;
+  background-repeat:initial initial;
+  border:1px solid #DDDDDD;
+  color:#C56D0F;
+  margin:20px 0;
+  padding:6px 15px;
+}
+#visit_guide dt, #visit_guide dd {
+  display:block;
+  float:left;
+  padding:2px 0;
+}
+#visit_guide dt {
+  color:#000000;
+  width:8%;
+}
+#visit_guide dd {
+  color:#797979;
+  width:92%;
+}
+#visit_guide li {
+  background-image:url(http://www.yonginlib.go.kr/bora/z00_images/deco_dot_01.gif);
+  background-position:6px 50%;
+  background-repeat:no-repeat no-repeat;
+  line-height:1.8em;
+  padding:0 0 0 15px;
+}
+.insapp {
+  border:2px solid #53504B;
+  border-bottom-left-radius:8px;
+  border-bottom-right-radius:8px;
+  border-top-left-radius:8px;
+  border-top-right-radius:8px;
+  float:left;
+  margin:0 0 10px;
+}
+.insapp dl {
+  padding:5px 20px;
+  width:710px;
+}
+.insapp dt, .insapp dd {
+  border-top-color:#DDDDDD;
+  border-top-style:dotted;
+  border-top-width:1px;
+  display:block;
+  float:left;
+  padding:3px 0;
+  width:15%;
+}
+.insapp dd {
+  width:85%;
+}
+.insapp input, .insapp select {
+  background-color:#F8F8F8;
+  background-position:initial initial;
+  background-repeat:initial initial;
+  border:1px solid #DDDDDD;
+  width:200px;
+}
+.insapp input.inp32 {
+  width:55px;
+}
+#f70_circle_tab {
+  border-bottom-color:#53504B;
+  border-bottom-style:solid;
+  border-bottom-width:2px;
+  display:block;
+  float:left;
+  margin:15px 0 10px;
+  width:100%;
+}
+#f70_circle_tab li {
+  border-bottom-left-radius:0;
+  border-bottom-right-radius:0;
+  border-left-color:#53504B;
+  border-left-width:2px;
+  border-right-color:#53504B;
+  border-right-width:2px;
+  border-style:solid solid none;
+  border-top-color:#53504B;
+  border-top-left-radius:8px;
+  border-top-right-radius:8px;
+  border-top-width:2px;
+  display:block;
+  float:left;
+  margin:0 -2px 0 0;
+  text-align:center;
+  width:120px;
+}
+#f70_circle_tab li a {
+  display:block;
+  padding:6px 0;
+  width:100%;
+}
+#f70_circle_tab li a:hover {
+  background-color:#53504B;
+  background-position:initial initial;
+  background-repeat:initial initial;
+  color:#FFCC33;
+}
+.f70_active .tab_01, .f71_active .tab_02, .f72_active .tab_03 {
+  background-color:#53504B;
+  background-position:initial initial;
+  background-repeat:initial initial;
+}
+.f70_active .tab_01 a, .f71_active .tab_02 a, .f72_active .tab_03 a {
+  color:#FFFFFF;
+}
+#f70_circle h4 {
+  font-size:12px;
+  font-weight:normal;
+  padding:15px 0;
+}
+.f70_circle_info {
+  color:#797979;
+}
+.f70_circle_info strong {
+  background-image:url(http://www.yonginlib.go.kr/bora/z00_images/deco_dot_01.gif);
+  background-position:4px 7px;
+  background-repeat:no-repeat no-repeat;
+  color:#333333;
+  display:block;
+  float:left;
+  padding:0 0 0 12px;
+  width:65px;
+}
+.f70_circle_info li {
+  line-height:2em;
+}
+.f70_circle_info caption {
+  background-image:url(http://www.yonginlib.go.kr/bora/z00_images/deco_dot_01.gif);
+  background-position:4px 7px;
+  background-repeat:no-repeat no-repeat;
+  color:#333333;
+  padding:0 0 5px 12px;
+  text-align:left;
+}
+.f70_circle_info table {
+  border:1px solid #53504B;
+  margin:5px 0 20px;
+  text-align:center;
+  vertical-align:middle;
+  width:746px;
+}
+.f70_circle_info table thead th {
+  background-color:#F8F8F8;
+  background-position:initial initial;
+  background-repeat:initial initial;
+  border:1px solid #CCCCCC;
+  padding:11px 0;
+}
+.f70_circle_info table tbody th, .f70_circle_info table tbody td {
+  border:1px solid #DDDDDD;
+  padding:7px 15px;
+}
+.f71_volunteers_info {
+  color:#797979;
+}
+.f71_volunteers_info caption {
+  background-image:url(http://www.yonginlib.go.kr/bora/z00_images/deco_dot_01.gif);
+  background-position:4px 7px;
+  background-repeat:no-repeat no-repeat;
+  color:#333333;
+  padding:0 0 5px 12px;
+  text-align:left;
+}
+.f71_volunteers_info table {
+  border:1px solid #53504B;
+  margin:5px 0 20px;
+  width:746px;
+}
+.f71_volunteers_info table thead th {
+  background-color:#F8F8F8;
+  background-position:initial initial;
+  background-repeat:initial initial;
+  border:1px solid #CCCCCC;
+  padding:11px 0;
+}
+.f71_volunteers_info table tbody th, .f71_volunteers_info table tbody td {
+  border:1px solid #DDDDDD;
+  padding:7px 15px;
+  vertical-align:middle;
+}
+.page_pn {
+  border:1px solid #CCCCCC;
+  border-bottom-left-radius:7px;
+  border-bottom-right-radius:7px;
+  border-top-left-radius:7px;
+  border-top-right-radius:7px;
+  padding:5px 10px;
+}
+.page_pn li {
+  padding:7px 0;
+}
+.page_pn li:first-child {
+  border-bottom-color:#EAEAEA;
+  border-bottom-style:dotted;
+  border-bottom-width:1px;
+}
+.recommends_book li {
+  background-color:#F8F8F8;
+  background-position:initial initial;
+  background-repeat:initial initial;
+  border:2px solid #544F44;
+  border-bottom-left-radius:8px;
+  border-bottom-right-radius:8px;
+  border-top-left-radius:8px;
+  border-top-right-radius:8px;
+  display:block;
+  float:left;
+  margin:7px 0;
+  padding:20px;
+}
+.recommends_book img {
+  float:left;
+}
+.recommends_book dl, .recommends_book div, .recommends_book h4 {
+  display:block;
+  float:right;
+  width:570px;
+}
+.recommends_book h4 {
+  border-bottom-color:#CCCCCC;
+  border-bottom-style:solid;
+  border-bottom-width:1px;
+  font-size:14px;
+  padding:0 0 7px;
+}
+.recommends_book dl {
+  margin:10px 0;
+}
+.recommends_book dt {
+  background-color:#666666;
+  background-position:initial initial;
+  background-repeat:initial initial;
+  border-bottom-left-radius:3px;
+  border-bottom-right-radius:3px;
+  border-top-left-radius:3px;
+  border-top-right-radius:3px;
+  color:#FFFFFF;
+  display:block;
+  float:left;
+  padding:2px 7px;
+  width:50px;
+}
+.recommends_book dd {
+  display:block;
+  float:left;
+  padding:2px 0 5px 15px;
+  width:206px;
+}
+.recommends_book dl dd .author {
+  width:412px;
+}
+.recommends_book div {
+  border-top-color:#CCCCCC;
+  border-top-style:dotted;
+  border-top-width:1px;
+  color:#797979;
+  font-weight:normal;
+  padding:8px 0 0;
+}
+.table_page_navi {
+  clear:both;
+  margin:15px 0;
+  text-align:center;
+}
+.table_page_navi li {
+  display:inline;
+}
+.table_page_navi a {
+  padding:5px 8px;
+  vertical-align:text-top;
+}
+.table_page_navi .first {
+  background-color:#666666;
+  background-image:url(http://www.yonginlib.go.kr/bora/z00_images/arrow_table_first.png);
+  background-position:5px 50%;
+  background-repeat:no-repeat no-repeat;
+  border-bottom-left-radius:3px;
+  border-bottom-right-radius:3px;
+  border-top-left-radius:3px;
+  border-top-right-radius:3px;
+  color:#FFFFFF;
+  padding:4px 6px 4px 16px;
+}
+.table_page_navi .before {
+  background-color:#666666;
+  background-image:url(http://www.yonginlib.go.kr/bora/z00_images/arrow_table_before.png);
+  background-position:5px 50%;
+  background-repeat:no-repeat no-repeat;
+  border-bottom-left-radius:3px;
+  border-bottom-right-radius:3px;
+  border-top-left-radius:3px;
+  border-top-right-radius:3px;
+  color:#FFFFFF;
+  margin:0 15px 0 0;
+  padding:4px 6px 4px 16px;
+}
+.table_page_navi .next {
+  background-color:#666666;
+  background-image:url(http://www.yonginlib.go.kr/bora/z00_images/arrow_table_next.png);
+  background-position:32px 50%;
+  background-repeat:no-repeat no-repeat;
+  border-bottom-left-radius:3px;
+  border-bottom-right-radius:3px;
+  border-top-left-radius:3px;
+  border-top-right-radius:3px;
+  color:#FFFFFF;
+  margin:0 0 0 15px;
+  padding:4px 16px 4px 6px;
+}
+.table_page_navi .last {
+  background-color:#666666;
+  background-image:url(http://www.yonginlib.go.kr/bora/z00_images/arrow_table_last.png);
+  background-position:22px 50%;
+  background-repeat:no-repeat no-repeat;
+  border-bottom-left-radius:3px;
+  border-bottom-right-radius:3px;
+  border-top-left-radius:3px;
+  border-top-right-radius:3px;
+  color:#FFFFFF;
+  padding:4px 24px 4px 6px;
+}
+.table_page_navi strong {
+  color:#FF6600;
+  font-weight:normal;
+  padding:5px 8px;
+  text-decoration:underline;
+  vertical-align:text-top;
+}
+.pagefind {
+  margin:10px 0 0;
+  text-align:center;
+}
+.pagefind select, .pagefind input {
+  vertical-align:middle;
+}
+.pagefind a {
+  background-image:url(http://www.yonginlib.go.kr/bora/z00_images/btn_m20.png);
+  background-position:initial initial;
+  background-repeat:repeat no-repeat;
+  color:#FFFFFF;
+  padding:4px 15px;
+}
+a.btn_t10 {
+  background-image:url(http://www.yonginlib.go.kr/bora/z00_images/btn_t10_bg.png);
+  background-position:initial initial;
+  background-repeat:repeat no-repeat;
+  border-bottom-left-radius:3px;
+  border-bottom-right-radius:3px;
+  border-top-left-radius:3px;
+  border-top-right-radius:3px;
+  color:#FFFFFF;
+  padding:3px 7px;
+}
+a.btn_t10 a:hover, .table_list_10 a.btn_t10:hover {
+  background-color:#91AA7A;
+  background-position:initial initial;
+  background-repeat:initial initial;
+  color:#FFFFFF;
+}
+a.btn_t11 {
+  background-color:#8EA877;
+  background-image:url(http://www.yonginlib.go.kr/bora/z00_images/btn_t10_bg.png);
+  background-position:initial initial;
+  background-repeat:repeat no-repeat;
+  border-bottom-left-radius:3px;
+  border-bottom-right-radius:3px;
+  border-top-left-radius:3px;
+  border-top-right-radius:3px;
+  color:#FFFFFF;
+  padding:2px 15px 1px;
+}
+a.btn_t11 a:hover {
+  background-color:#91AA7A;
+  background-position:initial initial;
+  background-repeat:initial initial;
+  color:#FFFFFF;
+}
+a.btn_t20 {
+  background-color:#70A8BD;
+  background-image:url(http://www.yonginlib.go.kr/bora/z00_images/btn_t20_bg.png);
+  background-position:initial initial;
+  background-repeat:repeat no-repeat;
+  border-bottom-left-radius:3px;
+  border-bottom-right-radius:3px;
+  border-top-left-radius:3px;
+  border-top-right-radius:3px;
+  color:#FFFFFF;
+  padding:3px 7px;
+}
+a.btn_t20 a:hover, .table_list_10 a.btn_t20:hover {
+  background-color:#649CB1;
+  background-position:initial initial;
+  background-repeat:initial initial;
+  color:#FFFFFF;
+}
+a.btn_t30 {
+  background-color:#C66866;
+  background-image:url(http://www.yonginlib.go.kr/bora/z00_images/btn_t30_bg.png);
+  background-position:initial initial;
+  background-repeat:repeat no-repeat;
+  border-bottom-left-radius:3px;
+  border-bottom-right-radius:3px;
+  border-top-left-radius:3px;
+  border-top-right-radius:3px;
+  color:#FFFFFF;
+  padding:3px 7px;
+}
+a.btn_t30 a:hover, .table_list_10 a.btn_t30:hover {
+  background-color:#C26361;
+  background-position:initial initial;
+  background-repeat:initial initial;
+  color:#FFFFFF;
+}
+a.btn_t40 {
+  background-image:url(http://www.yonginlib.go.kr/bora/z00_images/btn_t40_bg.png);
+  background-position:initial initial;
+  background-repeat:repeat no-repeat;
+  border-bottom-left-radius:3px;
+  border-bottom-right-radius:3px;
+  border-top-left-radius:3px;
+  border-top-right-radius:3px;
+  color:#FFFFFF;
+  padding:3px 7px;
+}
+a.btn_t40 a:hover, .table_list_10 a.btn_t40:hover {
+  background-color:#649CB1;
+  background-position:initial initial;
+  background-repeat:initial initial;
+  color:#FFFFFF;
+}
+a.btn_t50 {
+  background-color:#F6F5F2;
+  background-image:url(http://www.yonginlib.go.kr/bora/z00_images/btn_t50_bg.gif);
+  background-position:initial initial;
+  background-repeat:repeat no-repeat;
+  border:1px solid #DAD4C8;
+  border-bottom-left-radius:3px;
+  border-bottom-right-radius:3px;
+  border-top-left-radius:3px;
+  border-top-right-radius:3px;
+  color:#FF6600;
+  padding:5px 7px;
+}
+a:hover.btn_t50 {
+  background-color:#EBEBEB;
+  background-position:initial initial;
+  background-repeat:initial initial;
+  color:#9E5601;
+}
+a.btn_t60 {
+  background-color:#77AFC4;
+  background-image:url(http://www.yonginlib.go.kr/bora/z00_images/btn_bg_b10.png);
+  background-position:initial initial;
+  background-repeat:repeat no-repeat;
+  border-bottom-left-radius:3px;
+  border-bottom-right-radius:3px;
+  border-top-left-radius:3px;
+  border-top-right-radius:3px;
+  color:#FFFFFF;
+  padding:3px 7px;
+}
+a.btn_t60:hover {
+  background-color:#649CB1;
+  background-position:initial initial;
+  background-repeat:initial initial;
+}
+a.btn_m10 {
+  background-color:#6E695F;
+  background-image:url(http://www.yonginlib.go.kr/bora/z00_images/btn_m10.png);
+  background-position:initial initial;
+  background-repeat:repeat no-repeat;
+  border-bottom-left-radius:4px;
+  border-bottom-right-radius:4px;
+  border-top-left-radius:4px;
+  border-top-right-radius:4px;
+  color:#FFFFFF;
+  padding:7px 15px;
+}
+a.btn_m10:hover {
+  background-color:#585348;
+  background-position:initial initial;
+  background-repeat:initial initial;
+}
+a.btn_m20 {
+  background-color:#6E695F;
+  background-image:url(http://www.yonginlib.go.kr/bora/z00_images/btn_m10.png);
+  background-position:initial initial;
+  background-repeat:repeat no-repeat;
+  border-bottom-left-radius:4px;
+  border-bottom-right-radius:4px;
+  border-top-left-radius:4px;
+  border-top-right-radius:4px;
+  color:#FFFFFF;
+  padding:7px 15px;
+}
+a.btn_m20:hover {
+  background-color:#585348;
+  background-position:initial initial;
+  background-repeat:initial initial;
+}
+.btn_area_r01 {
+  clear:both;
+  margin:10px 0;
+  padding:10px 4px 10px 0;
+  text-align:right;
+}
+.btn_area_r02 {
+  clear:both;
+  margin:10px 0;
+  padding:10px 4px 10px 0;
+  text-align:right;
+}
+.btn_area_l01 {
+  float:left;
+  margin:15px 0 0;
+  padding:10px 0;
+  width:100%;
+}
+.table_search_16 .reserv a {
+  background-image:url(http://www.yonginlib.go.kr/bora/z00_images/btn_bg_g10.png);
+  background-position:initial initial;
+  background-repeat:repeat no-repeat;
+  border-bottom-left-radius:3px;
+  border-bottom-right-radius:3px;
+  border-top-left-radius:3px;
+  border-top-right-radius:3px;
+  color:#FFFFFF;
+  padding:3px 7px;
+}
+.table_search_16 .reserv a:hover {
+  background-color:#728B5B;
+  background-position:initial initial;
+  background-repeat:initial initial;
+}
+.mvbox {
+  background-image:url(http://www.yonginlib.go.kr/images/total_board/mv_box.gif);
+  background-position:0 0;
+  background-repeat:no-repeat no-repeat;
+  height:420px;
+  margin:0 auto 50px;
+  padding:15px;
+  position:relative;
+  width:590px;
+}
+.mv_ibox {
+  background-image:url(http://www.yonginlib.go.kr/images/total_board/mv_iboxbg.jpg);
+  background-position:0 0;
+  background-repeat:no-repeat no-repeat;
+  height:182px;
+  padding:13px 0 0;
+  width:410px;
+}
+.mv_ibox p {
+  background-image:url(http://www.yonginlib.go.kr/images/total_board/mv_ibg.gif);
+  background-position:0 0;
+  background-repeat:no-repeat no-repeat;
+  height:152px;
+  margin:0 auto;
+  padding:5px 0;
+  text-align:center;
+  width:130px;
+}
+.mv_tbox {
+  position:absolute;
+  right:7px;
+  top:6px;
+  width:240px;
+}
+.mv_tbox .mv_ttop {
+  background-image:url(http://www.yonginlib.go.kr/images/total_board/mv_tittop.gif);
+  background-position:0 100%;
+  background-repeat:no-repeat no-repeat;
+  height:70px;
+  width:240px;
+}
+.mv_tbox .mv_tfoot {
+  background-image:url(http://www.yonginlib.go.kr/images/total_board/mv_titfoot.gif);
+  background-position:0 0;
+  background-repeat:no-repeat no-repeat;
+  height:70px;
+  width:240px;
+}
+.mv_tbox .mv_tmid {
+  background-image:url(http://www.yonginlib.go.kr/images/total_board/mv_titline.gif);
+  background-position:0 0;
+  background-repeat:no-repeat repeat;
+  width:240px;
+}
+.mv_tbox .mv_tmid dl {
+  padding:0 0 0 12px;
+  width:210px;
+}
+.mv_tbox .mv_tmid dl::after {
+  clear:both;
+  content:'';
+  display:block;
+}
+.mv_tbox .mv_tmid dl dt.t1 {
+  float:left;
+  padding:1px 0;
+  width:57px;
+}
+.mv_tbox .mv_tmid dl dd.t1 {
+  float:right;
+  padding:1px 0;
+  width:152px;
+}
+.mv_tbox .mv_tmid dl dt.t2 {
+  clear:both;
+  float:left;
+  padding:1px 0;
+  width:57px;
+}
+.mv_tbox .mv_tmid dl dd.t2 {
+  float:right;
+  padding:1px 0;
+  width:152px;
+}
+.mv_tbox .mv_tmid dl dd.t2a {
+  background-color:#E8E8E8;
+  background-position:initial initial;
+  background-repeat:initial initial;
+  clear:both;
+  padding:4px;
+  width:202px;
+}
+.mv_tbox .mv_tmid dl dt.t3 {
+  clear:both;
+  padding:1px 0;
+  position:relative;
+  width:57px;
+  z-index:1000;
+}
+.mv_tbox .mv_tmid dl dd.t3 {
+  background-color:#E8E8E8;
+  background-position:initial initial;
+  background-repeat:initial initial;
+  margin:-10px 0 0;
+  padding:15px 4px 10px;
+  width:202px;
+}
+.mv_calbox {
+  left:13px;
+  position:absolute;
+  top:230px;
+  width:286px;
+}
+.mv_calbox .mv_caltop {
+  background-image:url(http://www.yonginlib.go.kr/images/total_board/mv_caltop.gif);
+  background-position:0 100%;
+  background-repeat:no-repeat no-repeat;
+  height:77px;
+  padding:20px 0 0;
+  width:286px;
+}
+.mv_calbox .mv_caltop ul {
+  margin:0 auto;
+  width:266px;
+}
+.mv_calbox .mv_caltop ul li {
+  background-image:url(http://www.yonginlib.go.kr/images/total_board/line.gif);
+  background-position:0 100%;
+  background-repeat:repeat no-repeat;
+  color:#585858;
+  font-weight:bold;
+  padding:1px 2px;
+}
+.mv_calbox .mv_caltop ul li span {
+  background-image:url(http://www.yonginlib.go.kr/images/total_board/bullet_mv.gif);
+  background-position:0 50%;
+  background-repeat:no-repeat no-repeat;
+  padding:0 0 0 8px;
+}
+.mv_calbox .mv_caltop .mv_calbtn {
+  height:20px;
+  left:70px;
+  margin:0 auto;
+  position:absolute;
+  top:68px;
+  width:146px;
+}
+.mv_calbox .mv_caltop .mv_calbtn ul {
+  margin:0;
+  padding:0;
+}
+.mv_calbox .mv_caltop .mv_calbtn ul li {
+  background-image:none;
+  background-position:initial initial;
+  background-repeat:initial initial;
+  float:left;
+  height:19px;
+  margin:0;
+  padding:0 1px;
+}
+.mv_calbox .mv_caltop .mv_calbtn ul li.mprev {
+  width:18px;
+}
+.mv_calbox .mv_caltop .mv_calbtn ul li.mnext {
+  width:18px;
+}
+.mv_calbox .mv_caltop .mv_calbtn ul li.datebg {
+  background-image:url(http://www.yonginlib.go.kr/images/total_board/btn_mvdate.gif);
+  background-position:50% 0;
+  background-repeat:no-repeat no-repeat;
+  color:#FFFFFF;
+  padding:1px 0 0;
+  text-align:center;
+  width:104px;
+}
+.mv_calbox .mv_calmid {
+  background-image:url(http://www.yonginlib.go.kr/images/total_board/mv_calline.gif);
+  background-position:0 0;
+  background-repeat:no-repeat repeat;
+  width:286px;
+}
+.mv_calbox .mv_calmid .mv_tbe {
+  margin:0 auto;
+  width:252px;
+}
+.mv_calbox .mv_calmid .mv_tbe table {
+  width:100%;
+}
+.mv_calbox .mv_calmid .mv_tbe table th {
+  height:20px;
+  width:36px;
+}
+.mv_calbox .mv_calmid .mv_tbe table td {
+  background-color:#EEEEEE;
+  background-position:initial initial;
+  background-repeat:initial initial;
+  border:1px solid #FFFFFF;
+  height:18px;
+  text-align:center;
+  width:36px;
+}
+.mv_calbox .mv_calmid .mv_tbe table td.sun {
+  background-color:#DEBBBB;
+  background-position:initial initial;
+  background-repeat:initial initial;
+}
+.mv_calbox .mv_calmid .mv_tbe table td.sat {
+  background-color:#BBCDDE;
+  background-position:initial initial;
+  background-repeat:initial initial;
+}
+.mv_calbox .mv_calmid .mv_tbe table td strong {
+  color:#FF0000;
+}
+.mv_calbox .mv_calmid .mv_tbe table td p {
+  background-color:#CFCFCF;
+  background-position:initial initial;
+  background-repeat:initial initial;
+}
+.mv_calbox .mv_calfoot {
+  background-image:url(http://www.yonginlib.go.kr/images/total_board/mv_calfoot.gif);
+  background-position:0 0;
+  background-repeat:no-repeat no-repeat;
+  height:18px;
+  width:286px;
+}
+#a60_tab {
+  border-bottom-color:#635D4D;
+  border-bottom-style:solid;
+  border-bottom-width:1px;
+  display:block;
+  float:left;
+  margin:15px 0 10px;
+  width:100%;
+}
+#a60_tab li {
+  border-bottom-left-radius:0;
+  border-bottom-right-radius:0;
+  border-left-color:#DDDDDD;
+  border-left-width:1px;
+  border-right-color:#DDDDDD;
+  border-right-width:1px;
+  border-style:solid solid none;
+  border-top-color:#DDDDDD;
+  border-top-left-radius:6px;
+  border-top-right-radius:6px;
+  border-top-width:1px;
+  display:block;
+  float:left;
+  margin:0 -1px 0 0;
+  text-align:center;
+  width:80px;
+}
+#a60_tab li a {
+  border-bottom-left-radius:0;
+  border-bottom-right-radius:0;
+  border-top-left-radius:6px;
+  border-top-right-radius:6px;
+  display:block;
+  padding:6px 0;
+  width:100%;
+}
+#a60_tab li a:hover {
+  background-color:#635D4D;
+  background-position:initial initial;
+  background-repeat:initial initial;
+  color:#FFFFFF;
+}
+.a60 .tab_00, .a61 .tab_01, .a62 .tab_02, .a63 .tab_03, .a64 .tab_04 {
+  background-color:#72614E;
+  background-image:url(http://www.yonginlib.go.kr/bora/z00_images/bg_tab_a01.png);
+  background-position:initial initial;
+  background-repeat:repeat no-repeat;
+}
+.a60 .tab_00 a, .a61 .tab_01 a, .a62 .tab_02 a, .a63 .tab_03 a, .a64 .tab_04 a {
+  color:#FFFFFF;
+}
+#a60_contents {
+  float:left;
+  padding:50px 0 30px;
+  text-align:center;
+  width:100%;
+}
+
+

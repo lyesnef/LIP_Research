@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE sqlMap      
+    PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"      
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+
+<sqlMap>
+
+  <!-- Use type aliases to avoid typing the full classname every time. -->
+  <!-- <typeAlias alias="LipMember" type="bean.member.LipMember"/> -->
+
+  <!-- Result maps describe the mapping between the columns returned
+       from a query, and the class properties.  A result map isn't
+       necessary if the columns (or aliases) match to the properties 
+       exactly. -->
+   
+<typeAlias alias="LipMember" type="bean.member.LipMember"/>
+
+  <resultMap id="LipMemberResult" class="LipMember">
+    <result property="memberNumber" column="member_number"/>
+    <result property="memberDetailAddress" column="member_detail_address"/>
+    <result property="memberPoint" column="member_point"/>
+    <result property="memberCellphoneCo" column="member_cellphone_co"/>
+    <result property="memberCellphoneNumber" column="member_cellphone_number"/>
+    <result property="memberImage" column="member_image"/>
+    <result property="memberEmail" column="member_email"/>
+    <result property="memberEmailRecieve" column="member_email_recieve"/>
+    <result property="memberBirth" column="member_birth"/>
+    <result property="memberPw" column="MEMBER_PW"/>
+    <result property="memberId" column="MEMBER_ID"/>
+    <result property="postcodeNumber" column="postcode_number"/>
+    <result property="regionNumber" column="region_number"/>
+     <result property="genderNumber" column="gender_number"/>
+    <result property="ageNumber" column="age_number"/>
+    <result property="memberAgree" column="member_agree"/>
+  </resultMap> 
+
+  <select id="selectLipMemberById" parameterClass="String" resultMap="LipMemberResult">
+    select * from Lip_Member where MEMBER_ID = #memberId#
+  </select>
+  
+<select id="selectLipMemberByNumber" parameterClass="int" resultMap="LipMemberResult">
+    select * from Lip_Member where member_number = #memberNumber#
+  </select>
+  
+  <select id="selectLipMemberAllById" parameterClass="String" resultMap="LipMemberResult">
+    select * from Lip_Member where MEMBER_ID like '%$memberId$%'
+  </select>
+  
+  <select id="checkId" parameterClass="String" resultClass="int">
+    select member_number from Lip_Member where MEMBER_ID = #memberId#
+  </select>
+
+<select id="checkEmail" parameterClass="String" resultClass="int">
+  	select member_number from Lip_Member where member_email = #memberEmail#
+</select>
+
+<select id="selectAgeNum" parameterClass="Integer" resultClass="String">
+    select age_name from age where age_number = #ageNum#
+</select>
+
+<select id="selectRegionName" parameterClass="Integer" resultClass="String">
+    select region_name from region where region_number = #regionNum#
+</select>
+
+<select id="selectSendMailbySurvey" parameterClass="Integer" resultMap="LipMemberResult">
+	select *  
+	from mail_send_list a, lip_member b
+	where survey_number=#surveyNum#
+	and a.member_number=b.member_number
+</select>
+
+</sqlMap>

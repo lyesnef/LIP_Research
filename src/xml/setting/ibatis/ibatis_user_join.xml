@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE sqlMap
+	PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
+	"http://ibatis.apache.org/dtd/sql-map-2.dtd">
+
+<sqlMap>
+	<!--insert태크 입력 시작 -->
+	<insert id="insertMember" parameterClass="bean.member.LipMember">
+		<selectKey keyProperty="memberNumber" resultClass="int">
+			select lip_member_seq.nextval from dual
+		</selectKey>
+		insert into lip_member(
+		member_number, member_detail_address, member_point, member_cellphone_co,
+		member_cellphone_number, member_email, member_email_recieve, member_birth,
+		member_pw, member_id, gender_number, postcode_number, region_number, age_number,
+		member_agree)
+		values (#memberNumber#, #memberDetailAddress#, #memberPoint#, #memberCellphoneCo#,
+		#memberCellphoneNumber#, #memberEmail#, #memberEmailRecieve#, #memberBirth#,
+		#memberPw#, #memberId#, #genderNumber#, #postcodeNumber#, #regionNumber#,
+		#ageNumber#, #memberAgree#)
+	</insert>
+	<insert id="joinPointIncome" parameterClass="bean.point.PointIncome">
+		insert into point_income values(point_income_seq.nextval, sysdate, #pointIncomePoint#, 
+		#pointIncomeDetail#, #pointIncomeList#, #memberNumber#)
+	</insert>
+	
+	<insert id="joinPointOutcome" parameterClass="bean.point.pointOutcome">
+		insert into point_outcome values(point_outcome_seq.nextval, sysdate, #pointOutcomePoint#,
+		#pointOutcomeDetail#, #pointOutcomeList#, #memberNumber#)
+	</insert>
+	<!-- insert태그 입력 종료 -->
+
+	<!-- select태크 입력 시작 -->
+	<select id="getPostcode" parameterClass="String" resultClass="bean.member.Postcode">
+		select postcode_number as postcodeNumber, postcode_1st as postcode1st,
+		postcode_2nd as postcode2nd, postcode_address as postcodeAddress
+		from postcode where postcode_address like '%$postcode_address$%'
+	</select>
+	
+	<select id="selectRecommendNum" parameterClass="String" resultClass="int">
+		select member_number from lip_member where member_id = #member_id#
+	</select>
+	<!-- select태그 입력 종료 -->
+	
+	<update id="updateRecommend" parameterClass="java.lang.String">
+		update lip_member set member_point = member_point+1000 where member_id = #memberId#
+	</update>
+
+</sqlMap>
